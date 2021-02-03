@@ -1,7 +1,3 @@
-board = [ [null,null,null,null],
-          [null,null,null,null],
-          [null,null,null,null],
-          [null,null,null,null] ];
 id = 0;
 class Block{
   /**
