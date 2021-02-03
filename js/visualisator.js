@@ -1,17 +1,31 @@
-board = [ [0,0,0,0],
-          [0,0,0,0],
-          [0,0,0,0],
-          [0,0,0,0] ];
-
+board = [ [null,null,null,null],
+          [null,null,null,null],
+          [null,null,null,null],
+          [null,null,null,null] ];
+id = 0;
 class Block{
-  constructor(position = [], cords = [], value){
+  /**
+  * creates a new block on a board
+  * @REQUIRED {[3][3]} board - main game board
+  * has:
+  * @param {x, y} position - coords of block
+  * @param {int} value - value of block
+  * @param {string} id - id of block in HTML
+  *
+  * @usage -  use     new Block([x, y], value)  for create a new Block on a board
+  *           use     board[x][y].method        to access a metods of a Block on this position
+  *
+  */
+  constructor(position = [], value){
     /**
-    * @param {[x,y]} position - coords of block to move
-    * @param {int} value - new value of
+    * @param {[x,y]} position !REQUIRED - coords of block
+    * @param {int} value !REQUIRED - new value of block
     */
+    id++;
+    this.id = `block-${id}`;
     this.position = this.#arrayToPos(position);
-    this.cords = this.#arrayToPos(cords);
     this.value = value;
+    this.#createBlock();
   }
   #arrayToPos(list){
     /**
@@ -21,19 +35,60 @@ class Block{
     return {"x" : list[0],
             "y" : list[1]}
   }
-  createBlock(){
+  #destroyOnTop(addressee = []){
     /**
-    * add a new block to a board
+    * destroy a visual blok of destination point
+    * @param {Block} addressee - coords of destination point
     */
+    if(addressee == null){
+      return
+    }else if(board[addressee.position.x][addressee.position.y]){
+      $(`#${addressee.id}`).removeClass(`p-${addressee.position.x}-${addressee.position.y}`);
+      $(`#${addressee.id}`).remove();
+    }
+  }
+  #createBlock(){
+    /**
+    * add`s a new block to a board, and render it
+    */
+    this.#destroyOnTop(board[this.position.x][this.position.y]);
     board[this.position.x][this.position.y] = this;
-    $("#mainBlocks").append("<div class=\"cube red absolute p-"+this.position.x+"-"+this.position.y+"\">"+this.value+"</div>");
-    // $("#mainBlocks").append("<div></div>");
+
+    $("#mainBlocks").append(`<div id="${this.id}" class="cube red absolute p-${this.position.x}-${this.position.y}">${this.value}</div>`);
+
   }
   move(cords = []){
     /**
     * move block to a new cords
     * @param {[x,y]} cords - coords to move block
     */
-    
+
+    moveTo = this.#arrayToPos(cords);
+    console.log(moveTo);
+    this.#destroyOnTop(board[moveTo.x][moveTo.y]);
+
+    board[this.position.x][this.position.y] = null;
+
+
+    $(`#${this.id}`).removeClass(`p-${this.position.x}-${this.position.y}`);
+    $(`#${this.id}`).addClass(`p-${moveTo.x}-${moveTo.y}`);
+
+    this.position.x = moveTo.x;
+    this.position.y = moveTo.y;
+    board[this.position.x][this.position.y] = this;
+
+
+  }
+  destroy(){
+    // TODO: do destroy functional
+    board[this.position.x][this.position.y] = null;
+    $(`#${this.id}`).remove();
   }
 }
+
+// setInterval(function (){
+//   for(let i = 0; i<4; i++){
+//     console.log(board[i]);
+//   }
+//   console.log("---");
+// }, 1000);
