@@ -497,13 +497,9 @@ main {
   top: 1016px;
   left: 1016px;
 }
-/* line 73, style.scss */
+/* line 70, style.scss */
 #gameFrame .row .cube.background {
   background: #E1EFEF;
-}
-/* line 77, style.scss */
-#gameFrame .row .cube.red {
-  background: #F05241;
 }
 
 /*# sourceMappingURL=style.css.map */

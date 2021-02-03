@@ -51,7 +51,20 @@ class Block{
     board[this.position.x][this.position.y] = this;
 
     $("#mainBlocks").append(`<div id="${this.id}" class="cube red absolute p-${this.position.x}-${this.position.y}">${this.value}</div>`);
+    $(`#${this.id}`).css({"background": this.#generateColor(this.value)});
 
+  }
+  #generateColor(value){
+    /**
+    * generate a color for Cube using a value
+    * @param {int} value of current block
+    * @return {string} color in a rgb() format
+    */
+    function mapping(x, in_min, in_max, out_min, out_max) {
+      return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+    }
+    let mapped_value = mapping(value, 0, 2048, 180, 45);
+    return `rgb(${mapped_value/2}, ${mapped_value}, ${mapped_value})`;
   }
   move(cords = []){
     /**
@@ -63,28 +76,18 @@ class Block{
     console.log(moveTo);
     this.#destroyOnTop(board[moveTo.x][moveTo.y]);
 
-    board[this.position.x][this.position.y] = null;
-
+    board[this.position.x][this.position.y] = 0;
 
     $(`#${this.id}`).removeClass(`p-${this.position.x}-${this.position.y}`);
     $(`#${this.id}`).addClass(`p-${moveTo.x}-${moveTo.y}`);
+    $(`#${this.id}`).css({"background": this.#generateColor(this.value)});
 
     this.position.x = moveTo.x;
     this.position.y = moveTo.y;
     board[this.position.x][this.position.y] = this;
-
-
   }
   destroy(){
-    // TODO: do destroy functional
     board[this.position.x][this.position.y] = null;
     $(`#${this.id}`).remove();
   }
 }
-
-// setInterval(function (){
-//   for(let i = 0; i<4; i++){
-//     console.log(board[i]);
-//   }
-//   console.log("---");
-// }, 1000);
