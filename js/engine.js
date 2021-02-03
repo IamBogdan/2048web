@@ -1,10 +1,9 @@
 
-board = [ [8, 4, 2, 4, 8, 8, 4, 4, 4, 4, 2, 0]
-        ];
+// board = [ [8, 4, 2, 4, 8, 8, 4, 4, 4, 4, 2, 0]
+//         ];
 
 
 class Game {
-
 
   generateValue(){
       let rd = Math.floor(Math.random() * 9);
@@ -35,7 +34,7 @@ class Game {
           }
           else if(board[i][j] != 0 && numb_index == -1 && zero_index != -1){
             board[i][zero_index] = board[i][j];
-            board[i][j] = 0
+            board[i][j] = 0;
             j = zero_index;
             numb_index = zero_index;
             zero_index = -1;
