@@ -1,6 +1,3 @@
-board = [ [8, 4, 2, 4, 8, 8, 4, 4, 4, 4, 2, 0]
-        ];
-
 class Game {
 
   generateValue(){
