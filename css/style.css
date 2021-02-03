@@ -1,17 +1,22 @@
-/* line 1, style.scss */
+/* line 5, style.scss */
 html, body {
   padding: 0;
   margin: 0;
   font-family: 'Ruda', sans-serif;
+  background: #f7f7f7;
 }
 
-/* line 7, style.scss */
+/* line 12, style.scss */
 main {
   width: 100vw;
   height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -41,23 +46,62 @@ main {
             transform: scale(1);
   }
 }
-/* line 24, style.scss */
+/* line 30, style.scss */
+.userInterface {
+  height: 100px;
+  width: 480px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+/* line 38, style.scss */
+span#score {
+  font-size: 30px;
+}
+
+/* line 42, style.scss */
+.button {
+  padding: 10px 15px;
+  background-color: #78d2d2;
+  border-radius: 7px;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.25);
+  -webkit-transition: .3s;
+  transition: .3s;
+  -webkit-transition-timing-function: cubic-bezier(0.06, 1.07, 0.17, 1.12);
+          transition-timing-function: cubic-bezier(0.06, 1.07, 0.17, 1.12);
+  font-size: 19px;
+  color: #000000;
+  cursor: pointer;
+}
+/* line 52, style.scss */
+.button:active {
+  border-bottom: 0px solid rgba(138, 138, 138, 0.7);
+}
+
+/* line 57, style.scss */
 #gameFrame {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-/* line 27, style.scss */
+/* line 60, style.scss */
 #gameFrame .overlay {
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-/* line 34, style.scss */
+/* line 66, style.scss */
 #gameFrame .row .cube {
-  margin-right: 7px;
-  margin-bottom: 7px;
+  margin-right: 8px;
+  margin-bottom: 8px;
   width: 120px;
   height: 120px;
   border-radius: 10px;
@@ -83,421 +127,421 @@ main {
   -webkit-animation-timing-function: cubic-bezier(0.06, 1.07, 0.17, 1.12);
           animation-timing-function: cubic-bezier(0.06, 1.07, 0.17, 1.12);
 }
-/* line 51, style.scss */
+/* line 83, style.scss */
 #gameFrame .row .cube.absolute {
   position: absolute;
 }
-/* line 54, style.scss */
+/* line 86, style.scss */
 #gameFrame .row .cube.absolute.p00 {
   top: 0px;
   left: 0px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-0-0 {
   top: 0px;
   left: 0px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-0-1 {
   top: 0px;
-  left: 127px;
+  left: 128px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-0-2 {
   top: 0px;
-  left: 254px;
+  left: 256px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-0-3 {
   top: 0px;
-  left: 381px;
+  left: 384px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-0-4 {
   top: 0px;
-  left: 508px;
+  left: 512px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-0-5 {
   top: 0px;
-  left: 635px;
+  left: 640px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-0-6 {
   top: 0px;
-  left: 762px;
+  left: 768px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-0-7 {
   top: 0px;
-  left: 889px;
+  left: 896px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-0-8 {
   top: 0px;
-  left: 1016px;
+  left: 1024px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-1-0 {
-  top: 127px;
+  top: 128px;
   left: 0px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-1-1 {
-  top: 127px;
-  left: 127px;
+  top: 128px;
+  left: 128px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-1-2 {
-  top: 127px;
-  left: 254px;
+  top: 128px;
+  left: 256px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-1-3 {
-  top: 127px;
-  left: 381px;
+  top: 128px;
+  left: 384px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-1-4 {
-  top: 127px;
-  left: 508px;
+  top: 128px;
+  left: 512px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-1-5 {
-  top: 127px;
-  left: 635px;
+  top: 128px;
+  left: 640px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-1-6 {
-  top: 127px;
-  left: 762px;
+  top: 128px;
+  left: 768px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-1-7 {
-  top: 127px;
-  left: 889px;
+  top: 128px;
+  left: 896px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-1-8 {
-  top: 127px;
-  left: 1016px;
+  top: 128px;
+  left: 1024px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-2-0 {
-  top: 254px;
+  top: 256px;
   left: 0px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-2-1 {
-  top: 254px;
-  left: 127px;
+  top: 256px;
+  left: 128px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-2-2 {
-  top: 254px;
-  left: 254px;
+  top: 256px;
+  left: 256px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-2-3 {
-  top: 254px;
-  left: 381px;
+  top: 256px;
+  left: 384px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-2-4 {
-  top: 254px;
-  left: 508px;
+  top: 256px;
+  left: 512px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-2-5 {
-  top: 254px;
-  left: 635px;
+  top: 256px;
+  left: 640px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-2-6 {
-  top: 254px;
-  left: 762px;
+  top: 256px;
+  left: 768px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-2-7 {
-  top: 254px;
-  left: 889px;
+  top: 256px;
+  left: 896px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-2-8 {
-  top: 254px;
-  left: 1016px;
+  top: 256px;
+  left: 1024px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-3-0 {
-  top: 381px;
+  top: 384px;
   left: 0px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-3-1 {
-  top: 381px;
-  left: 127px;
+  top: 384px;
+  left: 128px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-3-2 {
-  top: 381px;
-  left: 254px;
+  top: 384px;
+  left: 256px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-3-3 {
-  top: 381px;
-  left: 381px;
+  top: 384px;
+  left: 384px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-3-4 {
-  top: 381px;
-  left: 508px;
+  top: 384px;
+  left: 512px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-3-5 {
-  top: 381px;
-  left: 635px;
+  top: 384px;
+  left: 640px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-3-6 {
-  top: 381px;
-  left: 762px;
+  top: 384px;
+  left: 768px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-3-7 {
-  top: 381px;
-  left: 889px;
+  top: 384px;
+  left: 896px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-3-8 {
-  top: 381px;
-  left: 1016px;
+  top: 384px;
+  left: 1024px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-4-0 {
-  top: 508px;
+  top: 512px;
   left: 0px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-4-1 {
-  top: 508px;
-  left: 127px;
+  top: 512px;
+  left: 128px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-4-2 {
-  top: 508px;
-  left: 254px;
+  top: 512px;
+  left: 256px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-4-3 {
-  top: 508px;
-  left: 381px;
+  top: 512px;
+  left: 384px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-4-4 {
-  top: 508px;
-  left: 508px;
+  top: 512px;
+  left: 512px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-4-5 {
-  top: 508px;
-  left: 635px;
+  top: 512px;
+  left: 640px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-4-6 {
-  top: 508px;
-  left: 762px;
+  top: 512px;
+  left: 768px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-4-7 {
-  top: 508px;
-  left: 889px;
+  top: 512px;
+  left: 896px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-4-8 {
-  top: 508px;
-  left: 1016px;
+  top: 512px;
+  left: 1024px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-5-0 {
-  top: 635px;
+  top: 640px;
   left: 0px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-5-1 {
-  top: 635px;
-  left: 127px;
+  top: 640px;
+  left: 128px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-5-2 {
-  top: 635px;
-  left: 254px;
+  top: 640px;
+  left: 256px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-5-3 {
-  top: 635px;
-  left: 381px;
+  top: 640px;
+  left: 384px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-5-4 {
-  top: 635px;
-  left: 508px;
+  top: 640px;
+  left: 512px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-5-5 {
-  top: 635px;
-  left: 635px;
+  top: 640px;
+  left: 640px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-5-6 {
-  top: 635px;
-  left: 762px;
+  top: 640px;
+  left: 768px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-5-7 {
-  top: 635px;
-  left: 889px;
+  top: 640px;
+  left: 896px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-5-8 {
-  top: 635px;
-  left: 1016px;
+  top: 640px;
+  left: 1024px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-6-0 {
-  top: 762px;
+  top: 768px;
   left: 0px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-6-1 {
-  top: 762px;
-  left: 127px;
+  top: 768px;
+  left: 128px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-6-2 {
-  top: 762px;
-  left: 254px;
+  top: 768px;
+  left: 256px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-6-3 {
-  top: 762px;
-  left: 381px;
+  top: 768px;
+  left: 384px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-6-4 {
-  top: 762px;
-  left: 508px;
+  top: 768px;
+  left: 512px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-6-5 {
-  top: 762px;
-  left: 635px;
+  top: 768px;
+  left: 640px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-6-6 {
-  top: 762px;
-  left: 762px;
+  top: 768px;
+  left: 768px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-6-7 {
-  top: 762px;
-  left: 889px;
+  top: 768px;
+  left: 896px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-6-8 {
-  top: 762px;
-  left: 1016px;
+  top: 768px;
+  left: 1024px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-7-0 {
-  top: 889px;
+  top: 896px;
   left: 0px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-7-1 {
-  top: 889px;
-  left: 127px;
+  top: 896px;
+  left: 128px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-7-2 {
-  top: 889px;
-  left: 254px;
+  top: 896px;
+  left: 256px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-7-3 {
-  top: 889px;
-  left: 381px;
+  top: 896px;
+  left: 384px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-7-4 {
-  top: 889px;
-  left: 508px;
+  top: 896px;
+  left: 512px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-7-5 {
-  top: 889px;
-  left: 635px;
+  top: 896px;
+  left: 640px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-7-6 {
-  top: 889px;
-  left: 762px;
+  top: 896px;
+  left: 768px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-7-7 {
-  top: 889px;
-  left: 889px;
+  top: 896px;
+  left: 896px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-7-8 {
-  top: 889px;
-  left: 1016px;
+  top: 896px;
+  left: 1024px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-8-0 {
-  top: 1016px;
+  top: 1024px;
   left: 0px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-8-1 {
-  top: 1016px;
-  left: 127px;
+  top: 1024px;
+  left: 128px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-8-2 {
-  top: 1016px;
-  left: 254px;
+  top: 1024px;
+  left: 256px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-8-3 {
-  top: 1016px;
-  left: 381px;
+  top: 1024px;
+  left: 384px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-8-4 {
-  top: 1016px;
-  left: 508px;
+  top: 1024px;
+  left: 512px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-8-5 {
-  top: 1016px;
-  left: 635px;
+  top: 1024px;
+  left: 640px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-8-6 {
-  top: 1016px;
-  left: 762px;
+  top: 1024px;
+  left: 768px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-8-7 {
-  top: 1016px;
-  left: 889px;
+  top: 1024px;
+  left: 896px;
 }
-/* line 62, style.scss */
+/* line 94, style.scss */
 #gameFrame .row .cube.absolute.p-8-8 {
-  top: 1016px;
-  left: 1016px;
+  top: 1024px;
+  left: 1024px;
 }
-/* line 70, style.scss */
+/* line 102, style.scss */
 #gameFrame .row .cube.background {
   background: #E1EFEF;
 }

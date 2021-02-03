@@ -1,13 +1,19 @@
+$block-size : 120px;
+$grid-gap : 8px;
+$grid-size : 4;
+
 html, body{
   padding: 0;
   margin: 0;
   font-family: 'Ruda', sans-serif;
+  background: #f7f7f7;
 }
 
 main{
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -21,6 +27,33 @@ main{
   }
 }
 
+.userInterface{
+    height: 100px;
+    width: $block-size * $grid-size;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+span#score{
+  font-size: 30px;
+}
+
+.button{
+  padding: 10px 15px;
+  background-color: rgb(120, 210, 210);
+  border-radius: 7px;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.25);
+  transition: .3s;
+  transition-timing-function: cubic-bezier(.06,1.07,.17,1.12);
+  font-size: 19px;
+  color: #000000;
+  cursor: pointer;
+  &:active{
+    border-bottom: 0px solid rgba(138, 138, 138, 0.7);
+  }
+}
+
 #gameFrame{
   display: flex;
 
@@ -30,12 +63,11 @@ main{
   }
 
   .row{
-
     .cube{
-      margin-right: 7px;
-      margin-bottom: 7px;
-      width: 120px;
-      height: 120px;
+      margin-right: $grid-gap;
+      margin-bottom: $grid-gap;
+      width: $block-size;
+      height: $block-size;
       border-radius: 10px;
       display: flex;
       align-items: center;
@@ -60,8 +92,8 @@ main{
         @for $i from 0 through 8 {
           @for $j from 0 through 8 {
             &.p-#{$i}-#{$j} {
-              top: 127px * $i;
-              left: 127px * $j;
+              top: ($block-size+$grid-gap) * $i;
+              left: ($block-size+$grid-gap) * $j;
             }
           }
         }
@@ -70,7 +102,7 @@ main{
       &.background{
         background: #E1EFEF;
       }
-      
+
     }
 
 

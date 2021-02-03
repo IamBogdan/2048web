@@ -63,7 +63,7 @@ class Block{
     function mapping(x, in_min, in_max, out_min, out_max) {
       return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
     }
-    let mapped_value = mapping(value, 0, 2048, 180, 45);
+    let mapped_value = mapping(value, 2, 1024, 180, 45);
     return `rgb(${mapped_value/2}, ${mapped_value}, ${mapped_value})`;
   }
   move(cords = []){
