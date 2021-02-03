@@ -49,6 +49,7 @@ span#score{
   font-size: 19px;
   color: #000000;
   cursor: pointer;
+  user-select: none;
   &:active{
     border-bottom: 0px solid rgba(138, 138, 138, 0.7);
   }
