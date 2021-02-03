@@ -3,8 +3,6 @@ board = [ [8, 4, 2, 4, 8, 8, 4, 4, 4, 4, 2, 0]
 
 class Game {
 
-  // constructor() {
-  // }
   generateValue(){
       let rd = Math.floor(Math.random() * 9);
       if( rd <= 8){
