@@ -1,15 +1,11 @@
-<<<<<<< HEAD
+
 board = [ [8, 4, 2, 4, 8, 8, 4, 4, 4, 4, 2, 0]
         ];
 
+
 class Game {
 
-  // constructor() {
-  // }
-=======
-class Game {
 
->>>>>>> 4efff8c22e988b2fb16239a597663a572d2bccfe
   generateValue(){
       let rd = Math.floor(Math.random() * 9);
       if( rd <= 8){
