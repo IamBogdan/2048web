@@ -1,0 +1,73 @@
+html, body{
+  padding: 0;
+  margin: 0;
+  font-family: 'Ruda', sans-serif;
+}
+
+main{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#gameFrame{
+  display: flex;
+
+  .overlay{
+    position: absolute;
+    display: flex;
+  }
+
+  .row{
+
+    .cube{
+      margin-right: 7px;
+      margin-bottom: 7px;
+      width: 120px;
+      height: 120px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-size: 30px;
+      transition: .3s;
+
+      &.absolute{
+        position: absolute;
+
+        &.p00{
+          top: 0px;
+          left: 0px;
+        }
+
+
+        @for $i from 0 through 8 {
+          @for $j from 0 through 8 {
+            &.p-#{$i}-#{$j} {
+              top: 127px * $i;
+              left: 127px * $j;
+            }
+          }
+        }
+
+
+
+      }
+
+      &.background{
+        background: #E1EFEF;
+      }
+
+      &.red{
+        background: #9E7AD6;
+      }
+
+    }
+
+
+  }
+
+}
