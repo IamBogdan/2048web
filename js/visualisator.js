@@ -1,7 +1,3 @@
-board = [ [null,null,null,null],
-          [null,null,null,null],
-          [null,null,null,null],
-          [null,null,null,null] ];
 id = 0;
 class Block{
   /**
@@ -40,7 +36,7 @@ class Block{
     * destroy a visual blok of destination point
     * @param {Block} addressee - coords of destination point
     */
-    if(addressee == null){
+    if(addressee == 0){
       return
     }else if(board[addressee.position.x][addressee.position.y]){
       $(`#${addressee.id}`).removeClass(`p-${addressee.position.x}-${addressee.position.y}`);
