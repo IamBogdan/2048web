@@ -1,8 +1,7 @@
 board = [ [0, 0, 0, 0],
           [0, 0, 0, 0],
           [0, 0, 0, 0],
-          [0, 0, 0, 0],
-         ];
+          [0, 0, 0, 0] ];
 
 $(document).ready(main);
 function main() {
@@ -14,12 +13,17 @@ function main() {
     new Block(game.generatePosition(), game.generateValue());
   }, 500);
 
+  let reset_rate = 0;
   $("#reset-btn").on('click', function () {
     game.resetGame();
-    setTimeout(function () {
-      new Block(game.generatePosition(), game.generateValue());
-      new Block(game.generatePosition(), game.generateValue());
-    }, 500);
+
+    new Block(game.generatePosition(), game.generateValue());
+    new Block(game.generatePosition(), game.generateValue());
+
+    reset_rate++;
+    if(reset_rate >= 3){ $("#reset-btn").addClass("wiggle") }
+    setTimeout(function () { reset_rate = 0; $("#reset-btn").removeClass("wiggle"); }, 1000);
+
   });
 
   document.addEventListener('keydown', function(event) {

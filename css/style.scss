@@ -42,17 +42,45 @@ span#score{
 
 .button{
   padding: 10px 15px;
-  background-color: rgb(120, 210, 210);
+  background-color: rgb(94, 188, 188);
+  color: #FFFFFF;
   border-radius: 7px;
   border-bottom: 3px solid rgba(0, 0, 0, 0.25);
   transition: $animation-time;
   transition-timing-function: cubic-bezier(.06,1.07,.17,1.12);
   font-size: 19px;
-  color: #000000;
   cursor: pointer;
   user-select: none;
   &:active{
     border-bottom: 0px solid rgba(138, 138, 138, 0.7);
+  }
+}
+
+.wiggle{
+  animation-name: wiggle;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(.06,1.07,.17,1.12);
+  background: red;
+  transition: $animation-time;
+}
+@keyframes wiggle {
+  0%{
+    transform: translateX(0);
+  }
+  15%{
+    transform: translateX(15px);
+  }
+  30%{
+    transform: translateX(-15px);
+  }
+  45%{
+    transform: translateX(15px);
+  }
+  75%{
+    transform: translateX(-15px);
+  }
+  100%{
+    transform: translateX(0);
   }
 }
 
@@ -75,7 +103,7 @@ span#score{
       align-items: center;
       justify-content: center;
       color: #FFFFFF;
-      font-size: 30px;
+      font-size: 45px;
       transition: $animation-time;
       transition-timing-function: cubic-bezier(.06,1.07,.17,1.12);
       animation-name: spawnAnimation;
