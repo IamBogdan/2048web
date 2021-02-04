@@ -1,3 +1,4 @@
+ANIMATION_TIME = 500; // ms
 id = 0;
 class Block{
   /**
@@ -39,8 +40,10 @@ class Block{
     if( !(addressee instanceof Block) ){
       return
     }else if(board[addressee.position.x][addressee.position.y]){
-      $(`#${addressee.id}`).removeClass(`p-${addressee.position.x}-${addressee.position.y}`);
-      $(`#${addressee.id}`).remove();
+      $(`#${addressee.id}`).addClass('remove');
+      setTimeout(function () {
+        $(`#${addressee.id}`).remove();
+      }, ANIMATION_TIME);
     }
   }
   #createBlock(){
@@ -88,6 +91,9 @@ class Block{
   }
   destroy(){
     board[this.position.x][this.position.y] = 0;
-    $(`#${this.id}`).remove();
+    $(`#${this.id}`).addClass('remove');
+    setTimeout(function () {
+      $(`#${this.id}`).remove();
+    }, ANIMATION_TIME);
   }
 }
