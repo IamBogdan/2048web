@@ -8,11 +8,29 @@ class Game{
       return 4;
   }
 
-  generatePosition(){
-    // generate 4 x 4
-    let x = Math.floor(Math.random() * 4);
-    let y = Math.floor(Math.random() * 4);
-    return [x, y];
+// Обязательно должен быть пустой блок (с нулём)
+// Возвращает -1 если нет пустых блоков
+// Возвращает случайный индексы [i, j] который равен бустому блоку
+  generatePosition(/*board*/){
+    var pos = [];
+
+    for(var i = 0; i < board.length; i++){
+      for(var j = 0; j < board[0].length; j++){
+        if(board[i][j] == 0){
+          pos.push([i, j]);
+        }
+      }
+    }
+
+    if(pos.length == 0){
+      return -1;
+    }
+    if(pos.length == 1){
+      return pos[0];
+    }
+    // Рандом в радиусе [0, pos.length)
+    var i = Math.floor(Math.random() * pos.length);
+    return pos[i];
   }
 
   doGameMove(dir){
@@ -185,4 +203,57 @@ class Game{
       }
     }
   }
+<<<<<<< HEAD
+=======
+
+
+/**
+ @param: {sting}: dir (LEFT/RIGHT/UP/DOWN) - direction shift of numb
+    This function shifts all numbers to one side of the whole board.
+    // TODO: UP/ DOWN
+*/
+  clearZeroShiftBoard(dir){
+    var leni = board.length;
+    var lenj = board[0].length;
+
+
+    if(dir == "RIGHT"){
+      for (var i = leni - 1 ; i >= 0; i--) {
+        var zero_index = -1;
+        for (var j = lenj - 1; j >= 0; j--) {
+          if(board[i][j] == 0 && zero_index == -1){
+            zero_index = j;
+          }
+          else if(board[i][j] != 0 && zero_index != -1) {
+             board[i][zero_index] = board[i][j]; // swap 0 with numb,
+             board[i][j] = 0;
+             j = zero_index;
+             zero_index = -1;
+          }
+        }
+      }
+    }
+
+
+
+
+    else if(dir == "LEFT"){
+      for (var i = 0; i < leni; i++) {
+        var zero_index = -1;
+        for (var j = 0; j < lenj; j++) {
+          if(board[i][j] == 0 && zero_index == -1){
+            zero_index = j;
+          }
+          else if(board[i][j] != 0 && zero_index != -1) {
+             board[i][zero_index] = board[i][j]; // swap 0 with numb,
+             board[i][j] = 0;
+             j = zero_index;
+             zero_index = -1;
+          }
+        }
+      }
+    }
+    //else if()
+  }
+>>>>>>> 30b9d9f47a74968ddcb0169c092df7f198ffc7b1
 }
