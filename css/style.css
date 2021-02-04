@@ -1,4 +1,4 @@
-/* line 5, style.scss */
+/* line 6, style.scss */
 html, body {
   padding: 0;
   margin: 0;
@@ -6,7 +6,7 @@ html, body {
   background: #f7f7f7;
 }
 
-/* line 12, style.scss */
+/* line 13, style.scss */
 main {
   width: 100vw;
   height: 100vh;
@@ -46,7 +46,7 @@ main {
             transform: scale(1);
   }
 }
-/* line 30, style.scss */
+/* line 31, style.scss */
 .userInterface {
   height: 100px;
   width: 480px;
@@ -61,19 +61,19 @@ main {
           justify-content: space-between;
 }
 
-/* line 38, style.scss */
+/* line 39, style.scss */
 span#score {
   font-size: 30px;
 }
 
-/* line 42, style.scss */
+/* line 43, style.scss */
 .button {
   padding: 10px 15px;
   background-color: #78d2d2;
   border-radius: 7px;
   border-bottom: 3px solid rgba(0, 0, 0, 0.25);
-  -webkit-transition: .3s;
-  transition: .3s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   -webkit-transition-timing-function: cubic-bezier(0.06, 1.07, 0.17, 1.12);
           transition-timing-function: cubic-bezier(0.06, 1.07, 0.17, 1.12);
   font-size: 19px;
@@ -84,25 +84,25 @@ span#score {
       -ms-user-select: none;
           user-select: none;
 }
-/* line 53, style.scss */
+/* line 54, style.scss */
 .button:active {
   border-bottom: 0px solid rgba(138, 138, 138, 0.7);
 }
 
-/* line 58, style.scss */
+/* line 59, style.scss */
 #gameFrame {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-/* line 61, style.scss */
+/* line 62, style.scss */
 #gameFrame .overlay {
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-/* line 67, style.scss */
+/* line 68, style.scss */
 #gameFrame .row .cube {
   margin-right: 8px;
   margin-bottom: 8px;
@@ -120,432 +120,437 @@ span#score {
           justify-content: center;
   color: #FFFFFF;
   font-size: 30px;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   -webkit-transition-timing-function: cubic-bezier(0.06, 1.07, 0.17, 1.12);
           transition-timing-function: cubic-bezier(0.06, 1.07, 0.17, 1.12);
   -webkit-animation-name: spawnAnimation;
           animation-name: spawnAnimation;
-  -webkit-animation-duration: .4s;
-          animation-duration: .4s;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
   -webkit-animation-timing-function: cubic-bezier(0.06, 1.07, 0.17, 1.12);
           animation-timing-function: cubic-bezier(0.06, 1.07, 0.17, 1.12);
 }
-/* line 84, style.scss */
+/* line 85, style.scss */
+#gameFrame .row .cube.remove {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+/* line 89, style.scss */
 #gameFrame .row .cube.absolute {
   position: absolute;
 }
-/* line 87, style.scss */
+/* line 92, style.scss */
 #gameFrame .row .cube.absolute.p00 {
   top: 0px;
   left: 0px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-0-0 {
   top: 0px;
   left: 0px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-0-1 {
   top: 0px;
   left: 128px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-0-2 {
   top: 0px;
   left: 256px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-0-3 {
   top: 0px;
   left: 384px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-0-4 {
   top: 0px;
   left: 512px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-0-5 {
   top: 0px;
   left: 640px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-0-6 {
   top: 0px;
   left: 768px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-0-7 {
   top: 0px;
   left: 896px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-0-8 {
   top: 0px;
   left: 1024px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-1-0 {
   top: 128px;
   left: 0px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-1-1 {
   top: 128px;
   left: 128px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-1-2 {
   top: 128px;
   left: 256px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-1-3 {
   top: 128px;
   left: 384px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-1-4 {
   top: 128px;
   left: 512px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-1-5 {
   top: 128px;
   left: 640px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-1-6 {
   top: 128px;
   left: 768px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-1-7 {
   top: 128px;
   left: 896px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-1-8 {
   top: 128px;
   left: 1024px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-2-0 {
   top: 256px;
   left: 0px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-2-1 {
   top: 256px;
   left: 128px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-2-2 {
   top: 256px;
   left: 256px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-2-3 {
   top: 256px;
   left: 384px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-2-4 {
   top: 256px;
   left: 512px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-2-5 {
   top: 256px;
   left: 640px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-2-6 {
   top: 256px;
   left: 768px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-2-7 {
   top: 256px;
   left: 896px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-2-8 {
   top: 256px;
   left: 1024px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-3-0 {
   top: 384px;
   left: 0px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-3-1 {
   top: 384px;
   left: 128px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-3-2 {
   top: 384px;
   left: 256px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-3-3 {
   top: 384px;
   left: 384px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-3-4 {
   top: 384px;
   left: 512px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-3-5 {
   top: 384px;
   left: 640px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-3-6 {
   top: 384px;
   left: 768px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-3-7 {
   top: 384px;
   left: 896px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-3-8 {
   top: 384px;
   left: 1024px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-4-0 {
   top: 512px;
   left: 0px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-4-1 {
   top: 512px;
   left: 128px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-4-2 {
   top: 512px;
   left: 256px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-4-3 {
   top: 512px;
   left: 384px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-4-4 {
   top: 512px;
   left: 512px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-4-5 {
   top: 512px;
   left: 640px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-4-6 {
   top: 512px;
   left: 768px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-4-7 {
   top: 512px;
   left: 896px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-4-8 {
   top: 512px;
   left: 1024px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-5-0 {
   top: 640px;
   left: 0px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-5-1 {
   top: 640px;
   left: 128px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-5-2 {
   top: 640px;
   left: 256px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-5-3 {
   top: 640px;
   left: 384px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-5-4 {
   top: 640px;
   left: 512px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-5-5 {
   top: 640px;
   left: 640px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-5-6 {
   top: 640px;
   left: 768px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-5-7 {
   top: 640px;
   left: 896px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-5-8 {
   top: 640px;
   left: 1024px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-6-0 {
   top: 768px;
   left: 0px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-6-1 {
   top: 768px;
   left: 128px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-6-2 {
   top: 768px;
   left: 256px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-6-3 {
   top: 768px;
   left: 384px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-6-4 {
   top: 768px;
   left: 512px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-6-5 {
   top: 768px;
   left: 640px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-6-6 {
   top: 768px;
   left: 768px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-6-7 {
   top: 768px;
   left: 896px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-6-8 {
   top: 768px;
   left: 1024px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-7-0 {
   top: 896px;
   left: 0px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-7-1 {
   top: 896px;
   left: 128px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-7-2 {
   top: 896px;
   left: 256px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-7-3 {
   top: 896px;
   left: 384px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-7-4 {
   top: 896px;
   left: 512px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-7-5 {
   top: 896px;
   left: 640px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-7-6 {
   top: 896px;
   left: 768px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-7-7 {
   top: 896px;
   left: 896px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-7-8 {
   top: 896px;
   left: 1024px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-8-0 {
   top: 1024px;
   left: 0px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-8-1 {
   top: 1024px;
   left: 128px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-8-2 {
   top: 1024px;
   left: 256px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-8-3 {
   top: 1024px;
   left: 384px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-8-4 {
   top: 1024px;
   left: 512px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-8-5 {
   top: 1024px;
   left: 640px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-8-6 {
   top: 1024px;
   left: 768px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-8-7 {
   top: 1024px;
   left: 896px;
 }
-/* line 95, style.scss */
+/* line 100, style.scss */
 #gameFrame .row .cube.absolute.p-8-8 {
   top: 1024px;
   left: 1024px;
 }
-/* line 103, style.scss */
+/* line 108, style.scss */
 #gameFrame .row .cube.background {
   background: #E1EFEF;
 }
