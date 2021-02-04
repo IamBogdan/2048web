@@ -165,7 +165,7 @@ class Game{
       for(var j = 0; j < lenj; j++){ //define col
         var zero_index = -1;
         var numb_index = -1;
-        for(var i = lenj - 1; i >= 0; i--){
+        for(var i = leni - 1; i >= 0; i--){
           // Условие ниже определяет самое правую ячейку если она равна нулю и помещаяет индекс этого нуля в zero_index
           if(board[i][j] == 0 && numb_index == -1 && zero_index == -1){
             zero_index = i;
