@@ -12,9 +12,36 @@ class Game{
       return 4;
   }
 
+/**
+  // TODO: ресетнуть очки игры
+*/
+  resetGame(){
+    for(var i = 0; i < board.length; i++){
+      for(var j = 0; j < board[0].length; j++){
+        if(board[i][j] != 0){
+          board[i][j].destroy();
+        }
+      }
+    }
+  }
+
+// Возвращает false - игра не окончена
+// Возвращает true если игра не окончена
+  checkGameOver(){
+    for(var i = 0; i < board.length; i++){
+      for(var j = 0; j < board[0].length; j++){
+        if(board[i][j] == 0){
+          return false;
+        }
+      }
+    }
+    // Вся доска в блоках (в классе Block)
+
+  }
+
 // Обязательно должен быть пустой блок (с нулём)
 // Возвращает -1 если нет пустых блоков
-// Возвращает случайный индексы [i, j] который равен бустому блоку
+// Возвращает случайный индексы [i, j] который равен пустому блоку
   generatePosition(/*board*/){
     var pos = [];
 
@@ -37,6 +64,8 @@ class Game{
     return pos[i];
   }
 
+// Делает движение всей доски.
+// Возвращает 1 если сделано движение блоков, в ином случае 0
   doGameMove(dir){
     var leni = board.length;
     var lenj = board[0].length;
