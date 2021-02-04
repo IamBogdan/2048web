@@ -27,9 +27,13 @@ class Game{
 
 // Возвращает false - игра не окончена
 // Возвращает true если игра не окончена
+// Данная функция работает только с квадратной матрицей
   checkGameOver(){
-    for(var i = 0; i < board.length; i++){
-      for(var j = 0; j < board[0].length; j++){
+    var leni = board.length;
+    var lenj = board[0].length;
+
+    for(var i = 0; i < leni; i++){
+      for(var j = 0; j < lenj; j++){
         if(board[i][j] == 0){
           return false;
         }
@@ -37,6 +41,32 @@ class Game{
     }
     // Вся доска в блоках (в классе Block)
 
+    // Сравниваем углы матрицы
+    if(board[0][0].value == board[0][1].value || board[0][0].value == board[1][0].value ||
+       board[leni-1][0].value == board[leni-1][1].value || board[leni-1][0].value == board[leni-2][0].value ||
+       board[0][lenj-1].value == board[0][lenj-2].value || board[0][lenj-1].value == board[1][lenj-1].value ||
+       board[leni-1][lenj-1].value == board[leni-1][lenj-2].value || board[leni-1][lenj-1].value == board[leni-2][lenj-1].value){
+        return false;
+    }
+    // специально для 2x2 :D
+    else if(leni == 2 && lenj == 2){
+      return true;
+    }
+
+    // Сравниваем блоки в центре
+    for(var i = 1; i < leni - 2; i++){
+      for(var j = 1; j < lenj - 2; j++){
+        var current = board[i][j].value;
+        var top   = board[i-1][j].value;
+        var left  = board[i][j-1].value;
+        var down  = board[i+1][j].value;
+        var right = board[i][j+1].value;
+        if(current == top || current == left || current == down || current == right){
+          return false;
+        }
+      }
+    }
+    return true;
   }
 
 // Обязательно должен быть пустой блок (с нулём)
