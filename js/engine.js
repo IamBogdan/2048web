@@ -346,6 +346,3 @@ class Game{
 
 
 }
-
-
-a = new Game();
