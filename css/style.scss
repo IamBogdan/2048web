@@ -1,6 +1,7 @@
 $block-size : 120px;
 $grid-gap : 8px;
 $grid-size : 4;
+$animation-time : 0.5s;
 
 html, body{
   padding: 0;
@@ -44,7 +45,7 @@ span#score{
   background-color: rgb(120, 210, 210);
   border-radius: 7px;
   border-bottom: 3px solid rgba(0, 0, 0, 0.25);
-  transition: .3s;
+  transition: $animation-time;
   transition-timing-function: cubic-bezier(.06,1.07,.17,1.12);
   font-size: 19px;
   color: #000000;
@@ -75,11 +76,15 @@ span#score{
       justify-content: center;
       color: #FFFFFF;
       font-size: 30px;
-      transition: .4s;
+      transition: $animation-time;
       transition-timing-function: cubic-bezier(.06,1.07,.17,1.12);
       animation-name: spawnAnimation;
-      animation-duration: .4s;
+      animation-duration: $animation-time;
       animation-timing-function: cubic-bezier(.06,1.07,.17,1.12);
+
+      &.remove{
+        transform: scale(0);
+      }
 
       &.absolute{
         position: absolute;
