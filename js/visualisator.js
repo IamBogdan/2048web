@@ -66,14 +66,13 @@ class Block{
     let mapped_value = mapping(value, 2, 1024, 180, 45);
     return `rgb(${mapped_value/2}, ${mapped_value}, ${mapped_value})`;
   }
-  move(cords = []){
+  move(cords = [], newValue = this.value){
     /**
     * move block to a new cords
     * @param {[x,y]} cords - coords to move block
     */
-
+    this.value = newValue;
     moveTo = this.#arrayToPos(cords);
-    console.log(moveTo);
     this.#destroyOnTop(board[moveTo.x][moveTo.y]);
 
     board[this.position.x][this.position.y] = 0;
@@ -81,6 +80,7 @@ class Block{
     $(`#${this.id}`).removeClass(`p-${this.position.x}-${this.position.y}`);
     $(`#${this.id}`).addClass(`p-${moveTo.x}-${moveTo.y}`);
     $(`#${this.id}`).css({"background": this.#generateColor(this.value)});
+    $(`#${this.id}`).html(this.value);
 
     this.position.x = moveTo.x;
     this.position.y = moveTo.y;
