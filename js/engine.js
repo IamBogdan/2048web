@@ -1,5 +1,5 @@
 class Game{
-  
+
   generateValue(){
       let rd = Math.floor(Math.random() * 9);
       if( rd <= 8){
@@ -203,57 +203,4 @@ class Game{
       }
     }
   }
-<<<<<<< HEAD
-=======
-
-
-/**
- @param: {sting}: dir (LEFT/RIGHT/UP/DOWN) - direction shift of numb
-    This function shifts all numbers to one side of the whole board.
-    // TODO: UP/ DOWN
-*/
-  clearZeroShiftBoard(dir){
-    var leni = board.length;
-    var lenj = board[0].length;
-
-
-    if(dir == "RIGHT"){
-      for (var i = leni - 1 ; i >= 0; i--) {
-        var zero_index = -1;
-        for (var j = lenj - 1; j >= 0; j--) {
-          if(board[i][j] == 0 && zero_index == -1){
-            zero_index = j;
-          }
-          else if(board[i][j] != 0 && zero_index != -1) {
-             board[i][zero_index] = board[i][j]; // swap 0 with numb,
-             board[i][j] = 0;
-             j = zero_index;
-             zero_index = -1;
-          }
-        }
-      }
-    }
-
-
-
-
-    else if(dir == "LEFT"){
-      for (var i = 0; i < leni; i++) {
-        var zero_index = -1;
-        for (var j = 0; j < lenj; j++) {
-          if(board[i][j] == 0 && zero_index == -1){
-            zero_index = j;
-          }
-          else if(board[i][j] != 0 && zero_index != -1) {
-             board[i][zero_index] = board[i][j]; // swap 0 with numb,
-             board[i][j] = 0;
-             j = zero_index;
-             zero_index = -1;
-          }
-        }
-      }
-    }
-    //else if()
-  }
->>>>>>> 30b9d9f47a74968ddcb0169c092df7f198ffc7b1
 }
