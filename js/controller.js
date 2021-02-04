@@ -1,8 +1,7 @@
 board = [ [0, 0, 0, 0],
           [0, 0, 0, 0],
           [0, 0, 0, 0],
-          [0, 0, 0, 0],
-         ];
+          [0, 0, 0, 0] ];
 
 $(document).ready(main);
 function main() {
@@ -16,10 +15,10 @@ function main() {
 
   $("#reset-btn").on('click', function () {
     game.resetGame();
-    setTimeout(function () {
-      new Block(game.generatePosition(), game.generateValue());
-      new Block(game.generatePosition(), game.generateValue());
-    }, 500);
+
+    new Block(game.generatePosition(), game.generateValue());
+    new Block(game.generatePosition(), game.generateValue());
+
   });
 
   document.addEventListener('keydown', function(event) {
