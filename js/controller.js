@@ -14,6 +14,14 @@ function main() {
     new Block(game.generatePosition(), game.generateValue());
   }, 500);
 
+  $("#reset-btn").on('click', function () {
+    game.resetGame();
+    setTimeout(function () {
+      new Block(game.generatePosition(), game.generateValue());
+      new Block(game.generatePosition(), game.generateValue());
+    }, 500);
+  });
+
   document.addEventListener('keydown', function(event) {
     if(event.keyCode == 87 || event.keyCode == 38){
       game.doGameMove("UP")
@@ -38,6 +46,5 @@ function main() {
 
     console.log(board);
   });
-
 
 }
