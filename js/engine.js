@@ -1,5 +1,9 @@
 class Game{
 
+  constructor(){
+    this.is_move = false;
+  }
+
   generateValue(){
       let rd = Math.floor(Math.random() * 9);
       if( rd <= 8){
@@ -36,6 +40,8 @@ class Game{
   doGameMove(dir){
     var leni = board.length;
     var lenj = board[0].length;
+    // init in constructor
+    this.is_move = false;
 
     if(dir == "RIGHT"){
       for(var i = 0; i < leni; i++){ //define string (row)
@@ -51,12 +57,14 @@ class Game{
           else if(board[i][j] != 0 && numb_index != -1){
             if(board[i][j].value == board[i][numb_index].value){ // Сравниваем 2 этих числа если они равны, тогда объединяем их, в инном случае смотрим значение левее numb_index.
               board[i][j].move([i, numb_index], board[i][j].value * 2);
+              this.is_move = true;
               j = numb_index;
               numb_index = -1;
             }
             else if(numb_index - 1 >= 0){ // Сравниваем чтоб не выйти из границ массива. Для того чтобы посмотреть значение левее numb_index.
               if(board[i][numb_index - 1] == 0){
                 board[i][j].move([i, numb_index - 1]);
+                this.is_move = true;
                 numb_index = numb_index - 1;
                 j = numb_index; // Присваиваем numb_index - 1 вместо numb_index - 2, так как после выполнение условий в цикле выполнится j--
               }
@@ -71,6 +79,7 @@ class Game{
           }
           else if(board[i][j] != 0 && zero_index != -1){
             board[i][j].move([i, zero_index]);
+            this.is_move = true;
             j = zero_index;
             numb_index = zero_index;
             zero_index = -1;
@@ -92,12 +101,14 @@ class Game{
           else if(board[i][j] != 0 && numb_index != -1){
             if(board[i][j].value == board[i][numb_index].value){ // Сравниваем 2 этих числа если они равны, тогда объединяем их, в инном случае смотрим значение левее numb_index.
               board[i][j].move([i, numb_index], board[i][j].value * 2);
+              this.is_move = true;
               j = numb_index;
               numb_index = -1;
             }
             else if(numb_index + 1 < lenj){ // Сравниваем чтоб не выйти из границ массива. Для того чтобы посмотреть значение левее numb_index.
               if(board[i][numb_index + 1] == 0){
                 board[i][j].move([i, numb_index + 1]);
+                this.is_move = true;
                 numb_index = numb_index + 1;
                 j = numb_index; // Присваиваем numb_index - 1 вместо numb_index - 2, так как после выполнение условий в цикле выполнится j--
               }
@@ -112,6 +123,7 @@ class Game{
           }
           else if(board[i][j] != 0 && zero_index != -1){
             board[i][j].move([i, zero_index]);
+            this.is_move = true;
             j = zero_index;
             numb_index = zero_index;
             zero_index = -1;
@@ -134,12 +146,14 @@ class Game{
           else if(board[i][j] != 0 && numb_index != -1){
             if(board[i][j].value == board[numb_index][j].value){ // Сравниваем 2 этих числа если они равны, тогда объединяем их, в инном случае смотрим значение левее numb_index.
               board[i][j].move([numb_index, j], board[i][j].value * 2);
+              this.is_move = true;
               i = numb_index;
               numb_index = -1;
             }
             else if(numb_index - 1 >= 0){ // Сравниваем чтоб не выйти из границ массива. Для того чтобы посмотреть значение левее numb_index.
               if(board[numb_index - 1][j] == 0){
                 board[i][j].move([numb_index - 1, j]);
+                this.is_move = true;
                 numb_index = numb_index - 1;
                 i = numb_index; // Присваиваем numb_index - 1 вместо numb_index - 2, так как после выполнение условий в цикле выполнится j--
               }
@@ -154,6 +168,7 @@ class Game{
           }
           else if(board[i][j] != 0 && zero_index != -1){
             board[i][j].move([zero_index, j]);
+            this.is_move = true;
             i = zero_index;
             numb_index = zero_index;
             zero_index = -1;
@@ -175,12 +190,14 @@ class Game{
           else if(board[i][j] != 0 && numb_index != -1){
             if(board[i][j].value == board[numb_index][j].value){ // Сравниваем 2 этих числа если они равны, тогда объединяем их, в инном случае смотрим значение левее numb_index.
               board[i][j].move([numb_index, j], board[i][j].value * 2);
+              this.is_move = true;
               i = numb_index;
               numb_index = -1;
             }
             else if(numb_index + 1 >= 0){ // Сравниваем чтоб не выйти из границ массива. Для того чтобы посмотреть значение левее numb_index.
               if(board[numb_index + 1][j] == 0){
                 board[i][j].move([numb_index + 1, j]);
+                this.is_move = true;
                 numb_index = numb_index + 1;
                 i = numb_index; // Присваиваем numb_index - 1 вместо numb_index - 2, так как после выполнение условий в цикле выполнится j--
               }
@@ -195,6 +212,7 @@ class Game{
           }
           else if(board[i][j] != 0 && zero_index != -1){
             board[i][j].move([zero_index, j]);
+            this.is_move = true;
             i = zero_index;
             numb_index = zero_index;
             zero_index = -1;
@@ -202,5 +220,6 @@ class Game{
         }
       }
     }
+    return this.is_move;
   }
 }
