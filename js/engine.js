@@ -20,11 +20,29 @@ class Game{
       return 4;
   }
 
-  generatePosition(){
-    // generate 4 x 4
-    let x = Math.floor(Math.random() * 4);
-    let y = Math.floor(Math.random() * 4);
-    return [x, y];
+// Обязательно должен быть пустой блок (с нулём)
+// Возвращает -1 если нет пустых блоков
+// Возвращает случайный индексы [i, j] который равен бустому блоку
+  generatePosition(/*board*/){
+    var pos = [];
+
+    for(var i = 0; i < board.length; i++){
+      for(var j = 0; j < board[0].length; j++){
+        if(board[i][j] == 0){
+          pos.push([i, j]);
+        }
+      }
+    }
+
+    if(pos.length == 0){
+      return -1;
+    }
+    if(pos.length == 1){
+      return pos[0];
+    }
+    // Рандом в радиусе [0, pos.length)
+    var i = Math.floor(Math.random() * pos.length);
+    return pos[i];
   }
 
   doGameMove(dir){
@@ -342,7 +360,4 @@ class Game{
     }
     //else if()
   }
-
-
-
 }
