@@ -12,7 +12,7 @@ class Block{
   *           use     board[x][y].method        to access a metods of a Block on this position
   *
   */
-  constructor(position = [], value){
+  constructor(position = [], value = 2){
     /**
     * @param {[x,y]} position !REQUIRED - coords of block
     * @param {int} value !REQUIRED - new value of block
@@ -36,7 +36,7 @@ class Block{
     * destroy a visual blok of destination point
     * @param {Block} addressee - coords of destination point
     */
-    if(addressee == 0){
+    if( !(addressee instanceof Block) ){
       return
     }else if(board[addressee.position.x][addressee.position.y]){
       $(`#${addressee.id}`).removeClass(`p-${addressee.position.x}-${addressee.position.y}`);
@@ -87,7 +87,7 @@ class Block{
     board[this.position.x][this.position.y] = this;
   }
   destroy(){
-    board[this.position.x][this.position.y] = null;
+    board[this.position.x][this.position.y] = 0;
     $(`#${this.id}`).remove();
   }
 }
