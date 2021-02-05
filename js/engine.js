@@ -5,17 +5,16 @@ class Game{
     this.score = 0;
   }
 
+// Генерирует число 2 с шансом 90% и 4 с шансом 10%
   generateValue(){
       let rd = Math.floor(Math.random() * 9);
-      if( rd <= 8){
+      if(rd <= 8){
         return 2;
       }
       return 4;
   }
 
-/**
-  // TODO: ресетнуть очки игры
-*/
+//  Удаляет все блоки на поле, обнуляет очки.
   resetGame(){
     for(let i = 0; i < board.length; i++){
       for(let j = 0; j < board[0].length; j++){
@@ -24,6 +23,7 @@ class Game{
         }
       }
     }
+    this.score = 0;
   }
 
 // Возвращает false - игра не окончена
@@ -116,6 +116,7 @@ class Game{
           // Левое найденное число является board[i][j].
           else if(board[i][j] != 0 && numb_index != -1){
             if(board[i][j].value == board[i][numb_index].value){ // Сравниваем 2 этих числа если они равны, тогда объединяем их, в инном случае смотрим значение левее numb_index.
+              this.score += board[i][j].value * 2;
               board[i][j].move([i, numb_index], board[i][j].value * 2);
               this.is_move = true;
               j = numb_index;
@@ -160,6 +161,7 @@ class Game{
           // Левое найденное число является board[i][j].
           else if(board[i][j] != 0 && numb_index != -1){
             if(board[i][j].value == board[i][numb_index].value){ // Сравниваем 2 этих числа если они равны, тогда объединяем их, в инном случае смотрим значение левее numb_index.
+              this.score += board[i][j].value * 2;
               board[i][j].move([i, numb_index], board[i][j].value * 2);
               this.is_move = true;
               j = numb_index;
@@ -205,6 +207,7 @@ class Game{
           // Левое найденное число является board[i][j].
           else if(board[i][j] != 0 && numb_index != -1){
             if(board[i][j].value == board[numb_index][j].value){ // Сравниваем 2 этих числа если они равны, тогда объединяем их, в инном случае смотрим значение левее numb_index.
+              this.score += board[i][j].value * 2;
               board[i][j].move([numb_index, j], board[i][j].value * 2);
               this.is_move = true;
               i = numb_index;
@@ -249,6 +252,7 @@ class Game{
           // Левое найденное число является board[i][j].
           else if(board[i][j] != 0 && numb_index != -1){
             if(board[i][j].value == board[numb_index][j].value){ // Сравниваем 2 этих числа если они равны, тогда объединяем их, в инном случае смотрим значение левее numb_index.
+              this.score += board[i][j].value * 2;
               board[i][j].move([numb_index, j], board[i][j].value * 2);
               this.is_move = true;
               i = numb_index;
@@ -280,6 +284,5 @@ class Game{
         }
       }
     }
-    return this.is_move;
   }
 }

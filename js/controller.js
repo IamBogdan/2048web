@@ -51,7 +51,7 @@ function main() {
         new Block(game.generatePosition(), game.generateValue());
       }
     }
-
+    console.log(game.score);
     console.log(board);
   });
 
