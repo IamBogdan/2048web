@@ -2,6 +2,7 @@ class Game{
 
   constructor(){
     this.is_move = false;
+    this.score = 0;
   }
 
   generateValue(){
@@ -16,8 +17,8 @@ class Game{
   // TODO: ресетнуть очки игры
 */
   resetGame(){
-    for(var i = 0; i < board.length; i++){
-      for(var j = 0; j < board[0].length; j++){
+    for(let i = 0; i < board.length; i++){
+      for(let j = 0; j < board[0].length; j++){
         if(board[i][j] != 0){
           board[i][j].destroy();
         }
@@ -27,13 +28,13 @@ class Game{
 
 // Возвращает false - игра не окончена
 // Возвращает true если игра не окончена
-// Данная функция работает только с квадратной матрицей
+// Данная функция НЕ работает с матрицами 2xN и  Nx2, N > 2
   checkGameOver(){
-    var leni = board.length;
-    var lenj = board[0].length;
+    let leni = board.length;
+    let lenj = board[0].length;
 
-    for(var i = 0; i < leni; i++){
-      for(var j = 0; j < lenj; j++){
+    for(let i = 0; i < leni; i++){
+      for(let j = 0; j < lenj; j++){
         if(board[i][j] == 0){
           return false;
         }
@@ -54,13 +55,13 @@ class Game{
     }
 
     // Сравниваем блоки в центре
-    for(var i = 1; i < leni - 2; i++){
-      for(var j = 1; j < lenj - 2; j++){
-        var current = board[i][j].value;
-        var top   = board[i-1][j].value;
-        var left  = board[i][j-1].value;
-        var down  = board[i+1][j].value;
-        var right = board[i][j+1].value;
+    for(let i = 1; i < leni - 2; i++){
+      for(let j = 1; j < lenj - 2; j++){
+        let current = board[i][j].value;
+        let top   = board[i-1][j].value;
+        let left  = board[i][j-1].value;
+        let down  = board[i+1][j].value;
+        let right = board[i][j+1].value;
         if(current == top || current == left || current == down || current == right){
           return false;
         }
@@ -73,10 +74,10 @@ class Game{
 // Возвращает -1 если нет пустых блоков
 // Возвращает случайный индексы [i, j] который равен пустому блоку
   generatePosition(/*board*/){
-    var pos = [];
+    let pos = [];
 
-    for(var i = 0; i < board.length; i++){
-      for(var j = 0; j < board[0].length; j++){
+    for(let i = 0; i < board.length; i++){
+      for(let j = 0; j < board[0].length; j++){
         if(board[i][j] == 0){
           pos.push([i, j]);
         }
@@ -90,23 +91,23 @@ class Game{
       return pos[0];
     }
     // Рандом в радиусе [0, pos.length)
-    var i = Math.floor(Math.random() * pos.length);
+    let i = Math.floor(Math.random() * pos.length);
     return pos[i];
   }
 
 // Делает движение всей доски.
 // Возвращает 1 если сделано движение блоков, в ином случае 0
   doGameMove(dir){
-    var leni = board.length;
-    var lenj = board[0].length;
+    let leni = board.length;
+    let lenj = board[0].length;
     // init in constructor
     this.is_move = false;
 
     if(dir == "RIGHT"){
-      for(var i = 0; i < leni; i++){ //define string (row)
-        var zero_index = -1;
-        var numb_index = -1;
-        for(var j = lenj - 1; j >= 0; j--){
+      for(let i = 0; i < leni; i++){ //define string (row)
+        let zero_index = -1;
+        let numb_index = -1;
+        for(let j = lenj - 1; j >= 0; j--){
           // Условие ниже определяет самое правую ячейку если она равна нулю и помещаяет индекс этого нуля в zero_index
           if(board[i][j] == 0 && numb_index == -1 && zero_index == -1){
             zero_index = j;
@@ -147,10 +148,10 @@ class Game{
       }
     }
     if(dir == "LEFT"){
-      for(var i = 0; i < leni; i++){ //define string (row)
-        var zero_index = -1;
-        var numb_index = -1;
-        for(var j = 0; j < lenj; j++){
+      for(let i = 0; i < leni; i++){ //define string (row)
+        let zero_index = -1;
+        let numb_index = -1;
+        for(let j = 0; j < lenj; j++){
           // Условие ниже определяет самое правую ячейку если она равна нулю и помещаяет индекс этого нуля в zero_index
           if(board[i][j] == 0 && numb_index == -1 && zero_index == -1){
             zero_index = j;
@@ -192,10 +193,10 @@ class Game{
     }
     /*------------------------------------------------------------------------*/
     if(dir == "DOWN"){
-      for(var j = 0; j < lenj; j++){ //define col
-        var zero_index = -1;
-        var numb_index = -1;
-        for(var i = leni - 1; i >= 0; i--){
+      for(let j = 0; j < lenj; j++){ //define col
+        let zero_index = -1;
+        let numb_index = -1;
+        for(let i = leni - 1; i >= 0; i--){
           // Условие ниже определяет самое правую ячейку если она равна нулю и помещаяет индекс этого нуля в zero_index
           if(board[i][j] == 0 && numb_index == -1 && zero_index == -1){
             zero_index = i;
@@ -236,10 +237,10 @@ class Game{
       }
     }
     if(dir == "UP"){
-      for(var j = 0; j < lenj; j++){ //define col
-        var zero_index = -1;
-        var numb_index = -1;
-        for(var i = 0; i < leni; i++){ // for(var j = 0; j < lenj; j++){
+      for(let j = 0; j < lenj; j++){ //define col
+        let zero_index = -1;
+        let numb_index = -1;
+        for(let i = 0; i < leni; i++){ // for(let j = 0; j < leni; j++){
           // Условие ниже определяет самое правую ячейку если она равна нулю и помещаяет индекс этого нуля в zero_index
           if(board[i][j] == 0 && numb_index == -1 && zero_index == -1){
             zero_index = i;
