@@ -12,9 +12,26 @@
 </head>
 <body>
 
+
+  <div class="ui-overlay" style="display: none">
+    <div class="popup">
+      <span id="game-over-text">Game over!</span>
+      <span id="score-text">Your score: 2048</span>
+      <div id="reset-btn-overlay" class="button">
+        New game
+      </div>
+    </div>
+  </div>
+
+
   <main>
+
     <div class="userInterface">
-      <span id="score">2048</span>
+
+      <div class="score-scope">
+        <span id="score">2048</span>
+
+      </div>
       <div id="reset-btn" class="button">
         Restart
       </div>
@@ -59,7 +76,8 @@
   <!-- connecting JQuery -->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <!-- Підключення javascript -->
-  <script type="text/javascript" src="./js/visualisator.js"></script>
+  <script type="text/javascript" src="./js/display.js"></script>
+  <script type="text/javascript" src="./js/block.js"></script>
   <script type="text/javascript" src="./js/engine.js"></script>
   <script type="text/javascript" src="./js/controller.js"></script>
 

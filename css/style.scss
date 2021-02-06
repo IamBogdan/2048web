@@ -36,9 +36,39 @@ main{
     justify-content: space-between;
 }
 
-span#score{
-  font-size: 30px;
+.score-scope{
+  display: flex;
+  align-items: center;
+  .socreval{
+    margin-left: 15px;
+    font-size: 20px;
+    color: #000;
+    border-radius: 7px;
+    animation-name: spawnAnimationScoreval;
+    animation-duration: $animation-time*2;
+    animation-timing-function: cubic-bezier(.06,1.07,.17,1.12);
+    opacity: 0;
+  }
+
+  @keyframes spawnAnimationScoreval {
+    0%{
+      transform: scale(0);
+    }
+    50%{
+      transform: scale(1);
+      opacity: 1;
+    }
+    100%{
+      opacity: 0;
+    }
+  }
+
+  span#score{
+    font-size: 30px;
+  }
 }
+
+
 
 .button{
   padding: 10px 15px;
@@ -83,6 +113,39 @@ span#score{
     transform: translateX(0);
   }
 }
+
+.ui-overlay{
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(45deg, rgba(2,0,36,0.45) 0%, rgba(94,188,188,0.70) 100%);;
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .popup{
+    border-radius: 15px;
+    width: $block-size * 4;
+    height: $block-size * 2;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    #game-over-text{
+      font-size: 40px;
+    }
+    #score-text{
+      font-size: 25px;
+      color: rgb(80,80,80);
+    }
+    #reset-btn-overlay{
+      margin-top: 25px;
+    }
+  }
+}
+
+
 
 #gameFrame{
   display: flex;
@@ -136,10 +199,6 @@ span#score{
       &.background{
         background: #E1EFEF;
       }
-
     }
-
-
   }
-
 }

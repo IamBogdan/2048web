@@ -5,9 +5,9 @@ class Block{
   * creates a new block on a board
   * @REQUIRED {[3][3]} board - main game board
   * has:
-  * @param {x, y} position - coords of block
-  * @param {int} value - value of block
-  * @param {string} id - id of block in HTML
+  * @variable {x, y} position - coords of block
+  * @variable {int} value - value of block
+  * @variable {string} id - id of block in HTML
   *
   * @usage -  use     new Block([x, y], value)  for create a new Block on a board
   *           use     board[x][y].method        to access a metods of a Block on this position
