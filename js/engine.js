@@ -28,7 +28,9 @@ class Game{
 
 // Возвращает false - игра не окончена
 // Возвращает true если игра не окончена
-// Данная функция НЕ работает с матрицами 2xN и  Nx2, N > 2
+
+board = [[]];
+
   checkGameOver(){
     let leni = board.length;
     let lenj = board[0].length;
@@ -54,14 +56,60 @@ class Game{
       return true;
     }
 
+
+    for(let i = 1; i < leni - 1; i++){
+      let current = board[i][0].value;
+      let top     = board[i-1][0].value;
+      let down    = board[i+1][0].value;
+      let right   = board[i][1].value;
+      if(current ==  top || current == down || current == right){
+        return false;
+      }
+    }
+
+      for(let i = 1; i < leni - 1; i++){
+        let current = board[i][lenj-1].value;
+        let top     = board[i-1][lenj-1].value;
+        let left    = board[i][lenj-2].value;
+        let down    = board[i+1][lenj-1].value;
+        if(current ==  top || current == left || current == down){
+          return false;
+        }
+      }
+
+      for(let j = 1; j < lenj - 1; j++){
+        let current = board[0][j].value;
+        let left    = board[0][j-1].value;
+        let down    = board[1][j].value;
+        let right   = board[0][j+1].value;
+        if(current ==  left || current == down || current == right){
+          return false;
+        }
+      }
+
+      for(let j = 1; j < lenj - 1; j++){
+        let current = board[leni-1][j].value;
+        let top     = board[leni-2][j].value;
+        let left    = board[leni-1][j-1].value;
+        let right   = board[leni-1][j+1].value;
+        if(current ==  top || current == left || current == right){
+          return false;
+        }
+      }
+      // Для матриц 2xN и Nx2, N > 2
+      if(leni == 2 && lenj > 2 || lenj == 2 && leni > 2){
+        return true;
+      }
+
+
     // Сравниваем блоки в центре
     for(let i = 1; i < leni - 2; i++){
       for(let j = 1; j < lenj - 2; j++){
         let current = board[i][j].value;
-        let top   = board[i-1][j].value;
-        let left  = board[i][j-1].value;
-        let down  = board[i+1][j].value;
-        let right = board[i][j+1].value;
+        let top     = board[i-1][j].value;
+        let left    = board[i][j-1].value;
+        let down    = board[i+1][j].value;
+        let right   = board[i][j+1].value;
         if(current == top || current == left || current == down || current == right){
           return false;
         }
