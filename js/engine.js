@@ -28,12 +28,7 @@ class Game{
 
 // Возвращает false - игра не окончена
 // Возвращает true если игра не окончена
-<<<<<<< HEAD
-=======
-
-board = [[]];
-
->>>>>>> a4ff7b9b0d7ce7ad571360d7948e462b99e83255
+// Разботает со всеми кроме матрицами x > 1 и y > 1
   checkGameOver(){
     let leni = board.length;
     let lenj = board[0].length;
