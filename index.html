@@ -7,7 +7,13 @@
   <title>2048</title>
 
   <!-- Підключення стилів вебсторінки -->
-  <link href="https://fonts.googleapis.com/css2?family=Ruda:wght@855&display=swap" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Ruda:wght@855&display=swap" rel="stylesheet"> -->
+  <style>
+    @font-face {
+      font-family: Ruda;
+      src: url(./css/fonts/Ruda-Black.ttf);
+    }
+  </style>
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -74,8 +80,8 @@
 
 
   <!-- connecting JQuery -->
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <!-- Підключення javascript -->
+  <script type="text/javascript" src="./js/jquery-3.5.1.min.js"></script>
+
   <script type="text/javascript" src="./js/display.js"></script>
   <script type="text/javascript" src="./js/block.js"></script>
   <script type="text/javascript" src="./js/engine.js"></script>
