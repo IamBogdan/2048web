@@ -26,6 +26,7 @@ function main() {
     Display.hidePopUp();
   });
 
+  //KeyEvents
   document.addEventListener('keydown', function(event) {
     if(event.keyCode == 87 || event.keyCode == 38){
       game.doGameMove("UP");
@@ -49,6 +50,55 @@ function main() {
     }
 
   });
+
+  //Swipe events
+  document.addEventListener('touchstart', handleTouchStart, false);
+  document.addEventListener('touchmove', handleTouchMove, false);
+  let xDown = null;
+  let yDown = null;
+  function getTouches(evt) {
+    return evt.touches ||
+           evt.originalEvent.touches;
+  }
+  function handleTouchStart(evt) {
+      const firstTouch = getTouches(evt)[0];
+      xDown = firstTouch.clientX;
+      yDown = firstTouch.clientY;
+  };
+  function handleTouchMove(evt) {
+      if ( ! xDown || ! yDown ) {
+          return;
+      }
+      let xUp = evt.touches[0].clientX;
+      let yUp = evt.touches[0].clientY;
+      let xDiff = xDown - xUp;
+      let yDiff = yDown - yUp;
+      if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
+          if ( xDiff > 0 ) {
+              game.doGameMove("LEFT");
+              if(game.is_move)
+                gameAction(game);
+          }else{
+            game.doGameMove("RIGHT");
+            if(game.is_move)
+              gameAction(game);
+          }
+      } else {
+          if ( yDiff > 0 ) {
+              game.doGameMove("UP");
+              if(game.is_move)
+                gameAction(game);
+          } else {
+              game.doGameMove("DOWN");
+              if(game.is_move)
+                gameAction(game);
+          }
+      }
+      /* reset values */
+      xDown = null;
+      yDown = null;
+  };
+
 }
 
 function generateBlocks(number = 2){

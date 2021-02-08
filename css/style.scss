@@ -145,8 +145,6 @@ main{
   }
 }
 
-
-
 #gameFrame{
   display: flex;
 
@@ -166,7 +164,7 @@ main{
       align-items: center;
       justify-content: center;
       color: #FFFFFF;
-      font-size: 45px;
+      font-size: $block-size / 3;
       transition: $animation-time;
       transition-timing-function: cubic-bezier(.06,1.07,.17,1.12);
       animation-name: spawnAnimation;
@@ -201,4 +199,95 @@ main{
       }
     }
   }
+}
+
+
+@media screen and (max-height: $block-size * $grid-size + $grid-gap * $grid-size + 120px){
+  $bs: $block-size;
+  $block-size: $bs / 1.8;
+  .userInterface{
+      height: 100px;
+      width: $block-size * $grid-size;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  }
+
+  #gameFrame{
+    .row{
+      .cube{
+        margin-right: $grid-gap;
+        margin-bottom: $grid-gap;
+        width: $block-size;
+        height: $block-size;
+
+        &.absolute{
+          position: absolute;
+
+          &.p00{
+            top: 0px;
+            left: 0px;
+          }
+
+
+          @for $i from 0 through 8 {
+            @for $j from 0 through 8 {
+              &.p-#{$i}-#{$j} {
+                top: ($block-size+$grid-gap) * $i;
+                left: ($block-size+$grid-gap) * $j;
+              }
+            }
+          }
+
+        }
+
+      }
+    }
+  }
+
+
+}
+
+@media screen and (max-width: $block-size * $grid-size + $grid-gap * $grid-size + 40px){
+  $bs: $block-size;
+  $block-size: $bs / 1.8;
+  .userInterface{
+      height: 100px;
+      width: $block-size * $grid-size;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  }
+
+  #gameFrame{
+
+    .row{
+      .cube{
+        margin-right: $grid-gap;
+        margin-bottom: $grid-gap;
+        width: $block-size;
+        height: $block-size;
+        font-size: $block-size / 3;
+        &.absolute{
+          position: absolute;
+          &.p00{
+            top: 0px;
+            left: 0px;
+          }
+          @for $i from 0 through 8 {
+            @for $j from 0 through 8 {
+              &.p-#{$i}-#{$j} {
+                top: ($block-size+$grid-gap) * $i;
+                left: ($block-size+$grid-gap) * $j;
+              }
+            }
+          }
+
+        }
+
+      }
+    }
+  }
+
+
 }
