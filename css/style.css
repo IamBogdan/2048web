@@ -2,7 +2,9 @@ html, body {
   padding: 0;
   margin: 0;
   font-family: 'Ruda', sans-serif;
-  background: #f7f7f7; }
+  background: #f7f7f7;
+  -ms-touch-action: none;
+      touch-action: none; }
 
 main {
   width: 100vw;
