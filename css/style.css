@@ -226,7 +226,7 @@ main {
         -ms-flex-pack: center;
             justify-content: center;
     color: #FFFFFF;
-    font-size: 45px;
+    font-size: 40px;
     -webkit-transition: 0.5s;
     transition: 0.5s;
     -webkit-transition-timing-function: cubic-bezier(0.06, 1.07, 0.17, 1.12);
@@ -490,5 +490,541 @@ main {
         left: 1024px; }
     #gameFrame .row .cube.background {
       background: #E1EFEF; }
+
+@media screen and (max-height: 632px) {
+  .userInterface {
+    height: 100px;
+    width: 266.6666666667px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+
+  #gameFrame .row .cube {
+    margin-right: 8px;
+    margin-bottom: 8px;
+    width: 66.6666666667px;
+    height: 66.6666666667px; }
+    #gameFrame .row .cube.absolute {
+      position: absolute; }
+      #gameFrame .row .cube.absolute.p00 {
+        top: 0px;
+        left: 0px; }
+      #gameFrame .row .cube.absolute.p-0-0 {
+        top: 0px;
+        left: 0px; }
+      #gameFrame .row .cube.absolute.p-0-1 {
+        top: 0px;
+        left: 74.6666666667px; }
+      #gameFrame .row .cube.absolute.p-0-2 {
+        top: 0px;
+        left: 149.3333333333px; }
+      #gameFrame .row .cube.absolute.p-0-3 {
+        top: 0px;
+        left: 224px; }
+      #gameFrame .row .cube.absolute.p-0-4 {
+        top: 0px;
+        left: 298.6666666667px; }
+      #gameFrame .row .cube.absolute.p-0-5 {
+        top: 0px;
+        left: 373.3333333333px; }
+      #gameFrame .row .cube.absolute.p-0-6 {
+        top: 0px;
+        left: 448px; }
+      #gameFrame .row .cube.absolute.p-0-7 {
+        top: 0px;
+        left: 522.6666666667px; }
+      #gameFrame .row .cube.absolute.p-0-8 {
+        top: 0px;
+        left: 597.3333333333px; }
+      #gameFrame .row .cube.absolute.p-1-0 {
+        top: 74.6666666667px;
+        left: 0px; }
+      #gameFrame .row .cube.absolute.p-1-1 {
+        top: 74.6666666667px;
+        left: 74.6666666667px; }
+      #gameFrame .row .cube.absolute.p-1-2 {
+        top: 74.6666666667px;
+        left: 149.3333333333px; }
+      #gameFrame .row .cube.absolute.p-1-3 {
+        top: 74.6666666667px;
+        left: 224px; }
+      #gameFrame .row .cube.absolute.p-1-4 {
+        top: 74.6666666667px;
+        left: 298.6666666667px; }
+      #gameFrame .row .cube.absolute.p-1-5 {
+        top: 74.6666666667px;
+        left: 373.3333333333px; }
+      #gameFrame .row .cube.absolute.p-1-6 {
+        top: 74.6666666667px;
+        left: 448px; }
+      #gameFrame .row .cube.absolute.p-1-7 {
+        top: 74.6666666667px;
+        left: 522.6666666667px; }
+      #gameFrame .row .cube.absolute.p-1-8 {
+        top: 74.6666666667px;
+        left: 597.3333333333px; }
+      #gameFrame .row .cube.absolute.p-2-0 {
+        top: 149.3333333333px;
+        left: 0px; }
+      #gameFrame .row .cube.absolute.p-2-1 {
+        top: 149.3333333333px;
+        left: 74.6666666667px; }
+      #gameFrame .row .cube.absolute.p-2-2 {
+        top: 149.3333333333px;
+        left: 149.3333333333px; }
+      #gameFrame .row .cube.absolute.p-2-3 {
+        top: 149.3333333333px;
+        left: 224px; }
+      #gameFrame .row .cube.absolute.p-2-4 {
+        top: 149.3333333333px;
+        left: 298.6666666667px; }
+      #gameFrame .row .cube.absolute.p-2-5 {
+        top: 149.3333333333px;
+        left: 373.3333333333px; }
+      #gameFrame .row .cube.absolute.p-2-6 {
+        top: 149.3333333333px;
+        left: 448px; }
+      #gameFrame .row .cube.absolute.p-2-7 {
+        top: 149.3333333333px;
+        left: 522.6666666667px; }
+      #gameFrame .row .cube.absolute.p-2-8 {
+        top: 149.3333333333px;
+        left: 597.3333333333px; }
+      #gameFrame .row .cube.absolute.p-3-0 {
+        top: 224px;
+        left: 0px; }
+      #gameFrame .row .cube.absolute.p-3-1 {
+        top: 224px;
+        left: 74.6666666667px; }
+      #gameFrame .row .cube.absolute.p-3-2 {
+        top: 224px;
+        left: 149.3333333333px; }
+      #gameFrame .row .cube.absolute.p-3-3 {
+        top: 224px;
+        left: 224px; }
+      #gameFrame .row .cube.absolute.p-3-4 {
+        top: 224px;
+        left: 298.6666666667px; }
+      #gameFrame .row .cube.absolute.p-3-5 {
+        top: 224px;
+        left: 373.3333333333px; }
+      #gameFrame .row .cube.absolute.p-3-6 {
+        top: 224px;
+        left: 448px; }
+      #gameFrame .row .cube.absolute.p-3-7 {
+        top: 224px;
+        left: 522.6666666667px; }
+      #gameFrame .row .cube.absolute.p-3-8 {
+        top: 224px;
+        left: 597.3333333333px; }
+      #gameFrame .row .cube.absolute.p-4-0 {
+        top: 298.6666666667px;
+        left: 0px; }
+      #gameFrame .row .cube.absolute.p-4-1 {
+        top: 298.6666666667px;
+        left: 74.6666666667px; }
+      #gameFrame .row .cube.absolute.p-4-2 {
+        top: 298.6666666667px;
+        left: 149.3333333333px; }
+      #gameFrame .row .cube.absolute.p-4-3 {
+        top: 298.6666666667px;
+        left: 224px; }
+      #gameFrame .row .cube.absolute.p-4-4 {
+        top: 298.6666666667px;
+        left: 298.6666666667px; }
+      #gameFrame .row .cube.absolute.p-4-5 {
+        top: 298.6666666667px;
+        left: 373.3333333333px; }
+      #gameFrame .row .cube.absolute.p-4-6 {
+        top: 298.6666666667px;
+        left: 448px; }
+      #gameFrame .row .cube.absolute.p-4-7 {
+        top: 298.6666666667px;
+        left: 522.6666666667px; }
+      #gameFrame .row .cube.absolute.p-4-8 {
+        top: 298.6666666667px;
+        left: 597.3333333333px; }
+      #gameFrame .row .cube.absolute.p-5-0 {
+        top: 373.3333333333px;
+        left: 0px; }
+      #gameFrame .row .cube.absolute.p-5-1 {
+        top: 373.3333333333px;
+        left: 74.6666666667px; }
+      #gameFrame .row .cube.absolute.p-5-2 {
+        top: 373.3333333333px;
+        left: 149.3333333333px; }
+      #gameFrame .row .cube.absolute.p-5-3 {
+        top: 373.3333333333px;
+        left: 224px; }
+      #gameFrame .row .cube.absolute.p-5-4 {
+        top: 373.3333333333px;
+        left: 298.6666666667px; }
+      #gameFrame .row .cube.absolute.p-5-5 {
+        top: 373.3333333333px;
+        left: 373.3333333333px; }
+      #gameFrame .row .cube.absolute.p-5-6 {
+        top: 373.3333333333px;
+        left: 448px; }
+      #gameFrame .row .cube.absolute.p-5-7 {
+        top: 373.3333333333px;
+        left: 522.6666666667px; }
+      #gameFrame .row .cube.absolute.p-5-8 {
+        top: 373.3333333333px;
+        left: 597.3333333333px; }
+      #gameFrame .row .cube.absolute.p-6-0 {
+        top: 448px;
+        left: 0px; }
+      #gameFrame .row .cube.absolute.p-6-1 {
+        top: 448px;
+        left: 74.6666666667px; }
+      #gameFrame .row .cube.absolute.p-6-2 {
+        top: 448px;
+        left: 149.3333333333px; }
+      #gameFrame .row .cube.absolute.p-6-3 {
+        top: 448px;
+        left: 224px; }
+      #gameFrame .row .cube.absolute.p-6-4 {
+        top: 448px;
+        left: 298.6666666667px; }
+      #gameFrame .row .cube.absolute.p-6-5 {
+        top: 448px;
+        left: 373.3333333333px; }
+      #gameFrame .row .cube.absolute.p-6-6 {
+        top: 448px;
+        left: 448px; }
+      #gameFrame .row .cube.absolute.p-6-7 {
+        top: 448px;
+        left: 522.6666666667px; }
+      #gameFrame .row .cube.absolute.p-6-8 {
+        top: 448px;
+        left: 597.3333333333px; }
+      #gameFrame .row .cube.absolute.p-7-0 {
+        top: 522.6666666667px;
+        left: 0px; }
+      #gameFrame .row .cube.absolute.p-7-1 {
+        top: 522.6666666667px;
+        left: 74.6666666667px; }
+      #gameFrame .row .cube.absolute.p-7-2 {
+        top: 522.6666666667px;
+        left: 149.3333333333px; }
+      #gameFrame .row .cube.absolute.p-7-3 {
+        top: 522.6666666667px;
+        left: 224px; }
+      #gameFrame .row .cube.absolute.p-7-4 {
+        top: 522.6666666667px;
+        left: 298.6666666667px; }
+      #gameFrame .row .cube.absolute.p-7-5 {
+        top: 522.6666666667px;
+        left: 373.3333333333px; }
+      #gameFrame .row .cube.absolute.p-7-6 {
+        top: 522.6666666667px;
+        left: 448px; }
+      #gameFrame .row .cube.absolute.p-7-7 {
+        top: 522.6666666667px;
+        left: 522.6666666667px; }
+      #gameFrame .row .cube.absolute.p-7-8 {
+        top: 522.6666666667px;
+        left: 597.3333333333px; }
+      #gameFrame .row .cube.absolute.p-8-0 {
+        top: 597.3333333333px;
+        left: 0px; }
+      #gameFrame .row .cube.absolute.p-8-1 {
+        top: 597.3333333333px;
+        left: 74.6666666667px; }
+      #gameFrame .row .cube.absolute.p-8-2 {
+        top: 597.3333333333px;
+        left: 149.3333333333px; }
+      #gameFrame .row .cube.absolute.p-8-3 {
+        top: 597.3333333333px;
+        left: 224px; }
+      #gameFrame .row .cube.absolute.p-8-4 {
+        top: 597.3333333333px;
+        left: 298.6666666667px; }
+      #gameFrame .row .cube.absolute.p-8-5 {
+        top: 597.3333333333px;
+        left: 373.3333333333px; }
+      #gameFrame .row .cube.absolute.p-8-6 {
+        top: 597.3333333333px;
+        left: 448px; }
+      #gameFrame .row .cube.absolute.p-8-7 {
+        top: 597.3333333333px;
+        left: 522.6666666667px; }
+      #gameFrame .row .cube.absolute.p-8-8 {
+        top: 597.3333333333px;
+        left: 597.3333333333px; } }
+@media screen and (max-width: 552px) {
+  .userInterface {
+    height: 100px;
+    width: 266.6666666667px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+
+  #gameFrame .row .cube {
+    margin-right: 8px;
+    margin-bottom: 8px;
+    width: 66.6666666667px;
+    height: 66.6666666667px;
+    font-size: 22.2222222222px; }
+    #gameFrame .row .cube.absolute {
+      position: absolute; }
+      #gameFrame .row .cube.absolute.p00 {
+        top: 0px;
+        left: 0px; }
+      #gameFrame .row .cube.absolute.p-0-0 {
+        top: 0px;
+        left: 0px; }
+      #gameFrame .row .cube.absolute.p-0-1 {
+        top: 0px;
+        left: 74.6666666667px; }
+      #gameFrame .row .cube.absolute.p-0-2 {
+        top: 0px;
+        left: 149.3333333333px; }
+      #gameFrame .row .cube.absolute.p-0-3 {
+        top: 0px;
+        left: 224px; }
+      #gameFrame .row .cube.absolute.p-0-4 {
+        top: 0px;
+        left: 298.6666666667px; }
+      #gameFrame .row .cube.absolute.p-0-5 {
+        top: 0px;
+        left: 373.3333333333px; }
+      #gameFrame .row .cube.absolute.p-0-6 {
+        top: 0px;
+        left: 448px; }
+      #gameFrame .row .cube.absolute.p-0-7 {
+        top: 0px;
+        left: 522.6666666667px; }
+      #gameFrame .row .cube.absolute.p-0-8 {
+        top: 0px;
+        left: 597.3333333333px; }
+      #gameFrame .row .cube.absolute.p-1-0 {
+        top: 74.6666666667px;
+        left: 0px; }
+      #gameFrame .row .cube.absolute.p-1-1 {
+        top: 74.6666666667px;
+        left: 74.6666666667px; }
+      #gameFrame .row .cube.absolute.p-1-2 {
+        top: 74.6666666667px;
+        left: 149.3333333333px; }
+      #gameFrame .row .cube.absolute.p-1-3 {
+        top: 74.6666666667px;
+        left: 224px; }
+      #gameFrame .row .cube.absolute.p-1-4 {
+        top: 74.6666666667px;
+        left: 298.6666666667px; }
+      #gameFrame .row .cube.absolute.p-1-5 {
+        top: 74.6666666667px;
+        left: 373.3333333333px; }
+      #gameFrame .row .cube.absolute.p-1-6 {
+        top: 74.6666666667px;
+        left: 448px; }
+      #gameFrame .row .cube.absolute.p-1-7 {
+        top: 74.6666666667px;
+        left: 522.6666666667px; }
+      #gameFrame .row .cube.absolute.p-1-8 {
+        top: 74.6666666667px;
+        left: 597.3333333333px; }
+      #gameFrame .row .cube.absolute.p-2-0 {
+        top: 149.3333333333px;
+        left: 0px; }
+      #gameFrame .row .cube.absolute.p-2-1 {
+        top: 149.3333333333px;
+        left: 74.6666666667px; }
+      #gameFrame .row .cube.absolute.p-2-2 {
+        top: 149.3333333333px;
+        left: 149.3333333333px; }
+      #gameFrame .row .cube.absolute.p-2-3 {
+        top: 149.3333333333px;
+        left: 224px; }
+      #gameFrame .row .cube.absolute.p-2-4 {
+        top: 149.3333333333px;
+        left: 298.6666666667px; }
+      #gameFrame .row .cube.absolute.p-2-5 {
+        top: 149.3333333333px;
+        left: 373.3333333333px; }
+      #gameFrame .row .cube.absolute.p-2-6 {
+        top: 149.3333333333px;
+        left: 448px; }
+      #gameFrame .row .cube.absolute.p-2-7 {
+        top: 149.3333333333px;
+        left: 522.6666666667px; }
+      #gameFrame .row .cube.absolute.p-2-8 {
+        top: 149.3333333333px;
+        left: 597.3333333333px; }
+      #gameFrame .row .cube.absolute.p-3-0 {
+        top: 224px;
+        left: 0px; }
+      #gameFrame .row .cube.absolute.p-3-1 {
+        top: 224px;
+        left: 74.6666666667px; }
+      #gameFrame .row .cube.absolute.p-3-2 {
+        top: 224px;
+        left: 149.3333333333px; }
+      #gameFrame .row .cube.absolute.p-3-3 {
+        top: 224px;
+        left: 224px; }
+      #gameFrame .row .cube.absolute.p-3-4 {
+        top: 224px;
+        left: 298.6666666667px; }
+      #gameFrame .row .cube.absolute.p-3-5 {
+        top: 224px;
+        left: 373.3333333333px; }
+      #gameFrame .row .cube.absolute.p-3-6 {
+        top: 224px;
+        left: 448px; }
+      #gameFrame .row .cube.absolute.p-3-7 {
+        top: 224px;
+        left: 522.6666666667px; }
+      #gameFrame .row .cube.absolute.p-3-8 {
+        top: 224px;
+        left: 597.3333333333px; }
+      #gameFrame .row .cube.absolute.p-4-0 {
+        top: 298.6666666667px;
+        left: 0px; }
+      #gameFrame .row .cube.absolute.p-4-1 {
+        top: 298.6666666667px;
+        left: 74.6666666667px; }
+      #gameFrame .row .cube.absolute.p-4-2 {
+        top: 298.6666666667px;
+        left: 149.3333333333px; }
+      #gameFrame .row .cube.absolute.p-4-3 {
+        top: 298.6666666667px;
+        left: 224px; }
+      #gameFrame .row .cube.absolute.p-4-4 {
+        top: 298.6666666667px;
+        left: 298.6666666667px; }
+      #gameFrame .row .cube.absolute.p-4-5 {
+        top: 298.6666666667px;
+        left: 373.3333333333px; }
+      #gameFrame .row .cube.absolute.p-4-6 {
+        top: 298.6666666667px;
+        left: 448px; }
+      #gameFrame .row .cube.absolute.p-4-7 {
+        top: 298.6666666667px;
+        left: 522.6666666667px; }
+      #gameFrame .row .cube.absolute.p-4-8 {
+        top: 298.6666666667px;
+        left: 597.3333333333px; }
+      #gameFrame .row .cube.absolute.p-5-0 {
+        top: 373.3333333333px;
+        left: 0px; }
+      #gameFrame .row .cube.absolute.p-5-1 {
+        top: 373.3333333333px;
+        left: 74.6666666667px; }
+      #gameFrame .row .cube.absolute.p-5-2 {
+        top: 373.3333333333px;
+        left: 149.3333333333px; }
+      #gameFrame .row .cube.absolute.p-5-3 {
+        top: 373.3333333333px;
+        left: 224px; }
+      #gameFrame .row .cube.absolute.p-5-4 {
+        top: 373.3333333333px;
+        left: 298.6666666667px; }
+      #gameFrame .row .cube.absolute.p-5-5 {
+        top: 373.3333333333px;
+        left: 373.3333333333px; }
+      #gameFrame .row .cube.absolute.p-5-6 {
+        top: 373.3333333333px;
+        left: 448px; }
+      #gameFrame .row .cube.absolute.p-5-7 {
+        top: 373.3333333333px;
+        left: 522.6666666667px; }
+      #gameFrame .row .cube.absolute.p-5-8 {
+        top: 373.3333333333px;
+        left: 597.3333333333px; }
+      #gameFrame .row .cube.absolute.p-6-0 {
+        top: 448px;
+        left: 0px; }
+      #gameFrame .row .cube.absolute.p-6-1 {
+        top: 448px;
+        left: 74.6666666667px; }
+      #gameFrame .row .cube.absolute.p-6-2 {
+        top: 448px;
+        left: 149.3333333333px; }
+      #gameFrame .row .cube.absolute.p-6-3 {
+        top: 448px;
+        left: 224px; }
+      #gameFrame .row .cube.absolute.p-6-4 {
+        top: 448px;
+        left: 298.6666666667px; }
+      #gameFrame .row .cube.absolute.p-6-5 {
+        top: 448px;
+        left: 373.3333333333px; }
+      #gameFrame .row .cube.absolute.p-6-6 {
+        top: 448px;
+        left: 448px; }
+      #gameFrame .row .cube.absolute.p-6-7 {
+        top: 448px;
+        left: 522.6666666667px; }
+      #gameFrame .row .cube.absolute.p-6-8 {
+        top: 448px;
+        left: 597.3333333333px; }
+      #gameFrame .row .cube.absolute.p-7-0 {
+        top: 522.6666666667px;
+        left: 0px; }
+      #gameFrame .row .cube.absolute.p-7-1 {
+        top: 522.6666666667px;
+        left: 74.6666666667px; }
+      #gameFrame .row .cube.absolute.p-7-2 {
+        top: 522.6666666667px;
+        left: 149.3333333333px; }
+      #gameFrame .row .cube.absolute.p-7-3 {
+        top: 522.6666666667px;
+        left: 224px; }
+      #gameFrame .row .cube.absolute.p-7-4 {
+        top: 522.6666666667px;
+        left: 298.6666666667px; }
+      #gameFrame .row .cube.absolute.p-7-5 {
+        top: 522.6666666667px;
+        left: 373.3333333333px; }
+      #gameFrame .row .cube.absolute.p-7-6 {
+        top: 522.6666666667px;
+        left: 448px; }
+      #gameFrame .row .cube.absolute.p-7-7 {
+        top: 522.6666666667px;
+        left: 522.6666666667px; }
+      #gameFrame .row .cube.absolute.p-7-8 {
+        top: 522.6666666667px;
+        left: 597.3333333333px; }
+      #gameFrame .row .cube.absolute.p-8-0 {
+        top: 597.3333333333px;
+        left: 0px; }
+      #gameFrame .row .cube.absolute.p-8-1 {
+        top: 597.3333333333px;
+        left: 74.6666666667px; }
+      #gameFrame .row .cube.absolute.p-8-2 {
+        top: 597.3333333333px;
+        left: 149.3333333333px; }
+      #gameFrame .row .cube.absolute.p-8-3 {
+        top: 597.3333333333px;
+        left: 224px; }
+      #gameFrame .row .cube.absolute.p-8-4 {
+        top: 597.3333333333px;
+        left: 298.6666666667px; }
+      #gameFrame .row .cube.absolute.p-8-5 {
+        top: 597.3333333333px;
+        left: 373.3333333333px; }
+      #gameFrame .row .cube.absolute.p-8-6 {
+        top: 597.3333333333px;
+        left: 448px; }
+      #gameFrame .row .cube.absolute.p-8-7 {
+        top: 597.3333333333px;
+        left: 522.6666666667px; }
+      #gameFrame .row .cube.absolute.p-8-8 {
+        top: 597.3333333333px;
+        left: 597.3333333333px; } }
 
 /*# sourceMappingURL=style.css.map */
