@@ -23,7 +23,7 @@ function main() {
 
   $("#reset-btn-overlay").on('click', function () {
     resetGame(game);
-    Display.hidePopUp();
+    display.popup.hide();
   });
 
   //KeyEvents
@@ -117,12 +117,12 @@ function gameAction(game){
     */
     generateBlocks(1);
 
-    Display.scoreAdd(game.score - prevScore);
+    display.score.added(game.score - prevScore);
+    display.score.update(game.score);
 
-    Display.score(game.score);
     prevScore = game.score;
     if(game.checkGameOver()){
-      Display.showPopUp();
+      display.popup.show();
     }
 }
 
@@ -130,5 +130,5 @@ function resetGame(game) {
     game.resetGame();
     generateBlocks(2); //generate 2 blocks on restart
     prevScore = 0;
-    Display.score(game.score);
+    display.score.update(game.score);
 }

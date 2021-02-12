@@ -1,5 +1,4 @@
-ANIMATION_TIME = 500; // ms
-id = 0;
+id = 0; //counter, used for create unique id`s for HTML DOM of Blocks
 class Block{
   /**
   * creates a new block on a board
@@ -37,13 +36,8 @@ class Block{
     * destroy a visual blok of destination point
     * @param {Block} addressee - coords of destination point
     */
-    if( !(addressee instanceof Block) ){
-      return
-    }else if(board[addressee.position.x][addressee.position.y]){
-      $(`#${addressee.id}`).addClass('remove');
-      setTimeout(function () {
-        $(`#${addressee.id}`).remove();
-      }, ANIMATION_TIME);
+    if( addressee instanceof Block && addressee != 0){
+      display.block.destroy(addressee.id);
     }
   }
   #createBlock(){
@@ -52,40 +46,9 @@ class Block{
     */
     this.#destroyOnTop(board[this.position.x][this.position.y]);
     board[this.position.x][this.position.y] = this;
-
-    $("#mainBlocks").append(`<div id="${this.id}" class="cube red absolute p-${this.position.x}-${this.position.y}">${this.value}</div>`);
-    $(`#${this.id}`).css({"background": this.#generateColor(this.value)});
-
+    display.block.spawn(this.id, this.position, this.value);
   }
-  #generateColor(value){
-    /**
-    * generate a color for Cube using a value
-    * @param {int} value of current block
-    * @return {string} color in a rgb() format
-    */
-    function mapping(x, in_min, in_max, out_min, out_max) {
-      return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-    }
-    if (value > 512) {
-      let mapped_value = mapping(value, 512, 2048, 200, 100);
-      return `rgb(${mapped_value/2}, ${mapped_value/2}, ${mapped_value/2})`;
-    }else if (value > 128) {
-      let mapped_value = mapping(value, 128, 512, 200, 100);
-      return `rgb(${mapped_value/2}, ${mapped_value/2}, ${mapped_value})`;
-    }else if (value > 64) {
-      let mapped_value = mapping(value, 64, 512, 200, 100);
-      return `rgb(${mapped_value}, ${mapped_value/2}, ${mapped_value/2})`;
-    }else if (value >= 32) {
-      let mapped_value = mapping(value, 32, 64, 200, 100);
-      return `rgb(${mapped_value}, ${mapped_value/2}, ${mapped_value})`;
-    }else {
-      let mapped_value = mapping(value, 0, 32, 200, 100);
-      return `rgb(${mapped_value/2}, ${mapped_value}, ${mapped_value})`;
-    }
 
-    // let mapped_value = mapping(value, 2, 1024, 180, 45);
-    // return `rgb(${mapped_value/2}, ${mapped_value}, ${mapped_value})`;
-  }
   move(cords = [], newValue = this.value){
     /**
     * move block to a new cords
@@ -97,10 +60,7 @@ class Block{
 
     board[this.position.x][this.position.y] = 0;
 
-    $(`#${this.id}`).removeClass(`p-${this.position.x}-${this.position.y}`);
-    $(`#${this.id}`).addClass(`p-${moveTo.x}-${moveTo.y}`);
-    $(`#${this.id}`).css({"background": this.#generateColor(this.value)});
-    $(`#${this.id}`).html(this.value);
+    display.block.move(this.id, this.position, moveTo, this.value);
 
     this.position.x = moveTo.x;
     this.position.y = moveTo.y;
@@ -108,9 +68,6 @@ class Block{
   }
   destroy(){
     board[this.position.x][this.position.y] = 0;
-    $(`#${this.id}`).addClass('remove');
-    setTimeout(function () {
-      $(`#${this.id}`).remove();
-    }, ANIMATION_TIME);
+    display.block.destroy(this.id);
   }
 }
