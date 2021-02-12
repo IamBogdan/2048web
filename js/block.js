@@ -31,7 +31,7 @@ class Block{
     return {"x" : list[0],
             "y" : list[1]}
   }
-  #destroyOnTop(addressee = []){
+  #destroyBlock(addressee = []){
     /**
     * destroy a visual blok of destination point
     * @param {Block} addressee - coords of destination point
@@ -44,7 +44,7 @@ class Block{
     /**
     * add`s a new block to a board, and render it
     */
-    this.#destroyOnTop(board[this.position.x][this.position.y]);
+    this.#destroyBlock(board[this.position.x][this.position.y]);
     board[this.position.x][this.position.y] = this;
     display.block.spawn(this.id, this.position, this.value);
   }
@@ -56,7 +56,7 @@ class Block{
     */
     this.value = newValue;
     moveTo = this.#arrayToPos(cords);
-    this.#destroyOnTop(board[moveTo.x][moveTo.y]);
+    this.#destroyBlock(board[moveTo.x][moveTo.y]);
 
     board[this.position.x][this.position.y] = 0;
 
@@ -66,8 +66,8 @@ class Block{
     this.position.y = moveTo.y;
     board[this.position.x][this.position.y] = this;
   }
-  destroy(){
-    board[this.position.x][this.position.y] = 0;
-    display.block.destroy(this.id);
+  destroy(id, position){
+      board[this.position.x][this.position.y] = 0;
+      display.block.destroy(this.id);
   }
 }
