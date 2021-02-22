@@ -231,14 +231,6 @@ main{
           }
 
 
-          @for $i from 0 through 8 {
-            @for $j from 0 through 8 {
-              &.p-#{$i}-#{$j} {
-                top: ($block-size+$grid-gap) * $i;
-                left: ($block-size+$grid-gap) * $j;
-              }
-            }
-          }
 
         }
 
@@ -274,14 +266,6 @@ main{
           &.p00{
             top: 0px;
             left: 0px;
-          }
-          @for $i from 0 through 8 {
-            @for $j from 0 through 8 {
-              &.p-#{$i}-#{$j} {
-                top: ($block-size+$grid-gap) * $i;
-                left: ($block-size+$grid-gap) * $j;
-              }
-            }
           }
 
         }
