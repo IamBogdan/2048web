@@ -60,7 +60,7 @@ class Block{
 
     board[this.position.x][this.position.y] = 0;
 
-    display.block.move(this.id, this.position, moveTo, this.value);
+    display.block.move(this.id, moveTo, this.value);
 
     this.position.x = moveTo.x;
     this.position.y = moveTo.y;
