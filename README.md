@@ -9,6 +9,8 @@ git clone IamBogdan/2048web
 ```
 and open ```index.html``` in your web browser.
 
+Also you could go to [releases](https://github.com/IamBogdan/2048web/releases) and download latest stable release.
+
 ## Browser support
 
 **Warning: this app does not support any version of IE. Use modern chromium-based browser for best game experience.**
