@@ -517,7 +517,32 @@ main {
       #gameFrame .row .cube.absolute.p00 {
         top: 0px;
         left: 0px; } }
-@media screen and (max-width: 552px) {
+@media screen and (max-height: 512px) {
+  .userInterface {
+    height: 100px;
+    width: 266.6666666667px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+
+  #gameFrame .row .cube {
+    margin-right: 8px;
+    margin-bottom: 8px;
+    width: 66.6666666667px;
+    height: 66.6666666667px;
+    font-size: 22.2222222222px; }
+    #gameFrame .row .cube.absolute {
+      position: absolute; }
+      #gameFrame .row .cube.absolute.p00 {
+        top: 0px;
+        left: 0px; } }
+@media screen and (max-width: 512px) {
   .userInterface {
     height: 100px;
     width: 266.6666666667px;
