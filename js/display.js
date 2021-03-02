@@ -120,13 +120,14 @@ function onResize() {
   const p = new Promise(function (resolve, reject) {
     calc = (display.DEFAULT_BLOCK_SIZE * display.grid.x + display.DEFAULT_BLOCK_GAP * display.grid.x + 40);
     winWidth = window.innerWidth;
+    winHeight = window.innerHeight;
     resolve();
   });
   p.then(() => {
-    if(calc >= winWidth){
+    if(calc >= winWidth || calc >= winHeight-80){
       display.block.size = 67
       rebuildBoard()
-    }else if(calc < winWidth){
+    }else if(calc < winWidth || calc < winHeight){
       display.block.size = 120
       rebuildBoard()
     }
