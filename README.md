@@ -5,7 +5,7 @@ In a future updates we gonna make interface for create custom game board in any 
 go to https://iambogdan.github.io/2048web/ or
 
 ``` 
-git clone IamBogdan/2048web 
+git clone https://github.com/IamBogdan/2048web 
 ```
 and open ```index.html``` in your web browser.
 
