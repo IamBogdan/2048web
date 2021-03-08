@@ -14,25 +14,7 @@ let display = {
       * @param {int} value of current block
       * @return {string} color in a rgb() format
       */
-      function mapping(x, in_min, in_max, out_min, out_max) {
-        return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-      }
-      if (value > 512) {
-        let mapped_value = mapping(value, 512, 2048, 200, 100);
-        return `rgb(${mapped_value/2}, ${mapped_value/2}, ${mapped_value/2})`;
-      }else if (value > 128) {
-        let mapped_value = mapping(value, 128, 512, 200, 100);
-        return `rgb(${mapped_value/2}, ${mapped_value/2}, ${mapped_value})`;
-      }else if (value > 64) {
-        let mapped_value = mapping(value, 64, 512, 200, 100);
-        return `rgb(${mapped_value}, ${mapped_value/2}, ${mapped_value/2})`;
-      }else if (value >= 32) {
-        let mapped_value = mapping(value, 32, 64, 200, 100);
-        return `rgb(${mapped_value}, ${mapped_value/2}, ${mapped_value})`;
-      }else {
-        let mapped_value = mapping(value, 0, 32, 200, 100);
-        return `rgb(${mapped_value/2}, ${mapped_value}, ${mapped_value})`;
-      }
+      return `rgb(${value*50%250}, ${value*100%250}, ${value*90%250})`;
     },
     spawn: function (id, position, value) {
       /**
