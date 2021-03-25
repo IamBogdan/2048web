@@ -5,8 +5,11 @@ class Game{
     this.score = 0;
   }
 
-// Генерирует число 2 с шансом 90% и 4 с шансом 10%
   generateValue(){
+    /**
+    * Generates number 2 with 90% probability or number 4 with 10% probability
+    * @return number 2 or 4
+    */
       let rd = Math.floor(Math.random() * 9);
       if(rd <= 8){
         return 2;
@@ -14,8 +17,10 @@ class Game{
       return 4;
   }
 
-//  Удаляет все блоки на поле, обнуляет очки.
   resetGame(){
+    /**
+    * Removes all blocks on the board, resets points
+    */
     for(let i = 0; i < board.length; i++){
       for(let j = 0; j < board[0].length; j++){
         if(board[i][j] != 0){
@@ -26,10 +31,13 @@ class Game{
     this.score = 0;
   }
 
-// Возвращает false - игра не окончена
-// Возвращает true если игра не окончена
-// Разботает со всеми кроме матрицами x > 1 и y > 1
   checkGameOver(){
+    /**
+    * Check the game for loss
+    * Works with all matrices x > 1 and y > 1
+    * @return false - the game is not over,
+    *         true - game is over
+    */
     let leni = board.length;
     let lenj = board[0].length;
 
@@ -40,16 +48,16 @@ class Game{
         }
       }
     }
-    // Вся доска в блоках (в классе Block)
+    // whole board in blocks (Class Block)
 
-    // Сравниваем углы матрицы
+    // Compares the corners of the matrix
     if(board[0][0].value == board[0][1].value || board[0][0].value == board[1][0].value ||
        board[leni-1][0].value == board[leni-1][1].value || board[leni-1][0].value == board[leni-2][0].value ||
        board[0][lenj-1].value == board[0][lenj-2].value || board[0][lenj-1].value == board[1][lenj-1].value ||
        board[leni-1][lenj-1].value == board[leni-1][lenj-2].value || board[leni-1][lenj-1].value == board[leni-2][lenj-1].value){
         return false;
     }
-    // специально для 2x2 :D
+    // for 2x2 :D
     else if(leni == 2 && lenj == 2){
       return true;
     }
@@ -94,13 +102,13 @@ class Game{
           return false;
         }
       }
-      // Для матриц 2xN и Nx2, N > 2
+      // for matrix 2xN и Nx2, N > 2
       if(leni == 2 && lenj > 2 || lenj == 2 && leni > 2){
         return true;
       }
 
 
-    // Сравниваем блоки в центре
+    // Compare blocks in the center
     for(let i = 1; i < leni - 2; i++){
       for(let j = 1; j < lenj - 2; j++){
         let current = board[i][j].value;
@@ -116,10 +124,13 @@ class Game{
     return true;
   }
 
-// Обязательно должен быть пустой блок (с нулём)
-// Возвращает -1 если нет пустых блоков
-// Возвращает случайный индексы [i, j] который равен пустому блоку
+
   generatePosition(/*board*/){
+    /**
+    * Generates coordinates for a new block
+    * @return -1 - if there is no empty space for the block
+    * @return a coordinates for the new block
+    */
     let pos = [];
 
     for(let i = 0; i < board.length; i++){
@@ -141,41 +152,45 @@ class Game{
     return pos[i];
   }
 
-// Делает движение всей доски.
-// Возвращает 1 если сделано движение блоков, в ином случае 0
   doGameMove(dir){
+    /**
+    * Makes the whole board move
+    * @param {dir} string - direction to shift all blocks
+    */
     let leni = board.length;
     let lenj = board[0].length;
     // init in constructor
     this.is_move = false;
 
     if(dir == "RIGHT"){
-      for(let i = 0; i < leni; i++){ //define string (row)
+      for(let i = 0; i < leni; i++){ //row
         let zero_index = -1;
         let numb_index = -1;
         for(let j = lenj - 1; j >= 0; j--){
-          // Условие ниже определяет самое правую ячейку если она равна нулю и помещаяет индекс этого нуля в zero_index
           if(board[i][j] == 0 && numb_index == -1 && zero_index == -1){
+            // determines the rightmost cell if it is zero and places the index of that zero at zero_index
             zero_index = j;
           }
-          // Условие ниже происходит когда найдено 2 числа, то есть numb_index показывает на крайнее правое число которое еще не было объеденино.
-          // Левое найденное число является board[i][j].
           else if(board[i][j] != 0 && numb_index != -1){
-            if(board[i][j].value == board[i][numb_index].value){ // Сравниваем 2 этих числа если они равны, тогда объединяем их, в инном случае смотрим значение левее numb_index.
+            // found 2 numbers, that is, numb_index points to the rightmost number that has not yet been merged.
+            // the left number found is board [i] [j].
+            if(board[i][j].value == board[i][numb_index].value){
+              // compare these 2 numbers if they are equal - combine them, else look at the value to the left of numb_index.
               this.score += board[i][j].value * 2;
               board[i][j].move([i, numb_index], board[i][j].value * 2);
               this.is_move = true;
               j = numb_index;
               numb_index = -1;
             }
-            else if(numb_index - 1 >= 0){ // Сравниваем чтоб не выйти из границ массива. Для того чтобы посмотреть значение левее numb_index.
+            else if(numb_index - 1 >= 0){
+              // Compare to not get out of the bounds of the array. To view the value to the left of numb_index.
               if(board[i][numb_index - 1] == 0){
                 board[i][j].move([i, numb_index - 1]);
                 this.is_move = true;
-                numb_index = numb_index - 1;
-                j = numb_index; // Присваиваем numb_index - 1 вместо numb_index - 2, так как после выполнение условий в цикле выполнится j--
+                numb_index = numb_index - 1; // Assign numb_index - 1 instead numb_index - 2, since after the execution conditions is executed in a cycle j--
+                j = numb_index;
               }
-              else{ // Данная ситуация обозначает что индекс j = numb_index - 1
+              else{ // This situation means that the index j = numb_index - 1
                 numb_index = numb_index - 1;
                 j = numb_index;
               }
@@ -195,32 +210,29 @@ class Game{
       }
     }
     if(dir == "LEFT"){
-      for(let i = 0; i < leni; i++){ //define string (row)
+      for(let i = 0; i < leni; i++){ //row
         let zero_index = -1;
         let numb_index = -1;
         for(let j = 0; j < lenj; j++){
-          // Условие ниже определяет самое правую ячейку если она равна нулю и помещаяет индекс этого нуля в zero_index
           if(board[i][j] == 0 && numb_index == -1 && zero_index == -1){
             zero_index = j;
           }
-          // Условие ниже происходит когда найдено 2 числа, то есть numb_index показывает на крайнее правое число которое еще не было объеденино.
-          // Левое найденное число является board[i][j].
           else if(board[i][j] != 0 && numb_index != -1){
-            if(board[i][j].value == board[i][numb_index].value){ // Сравниваем 2 этих числа если они равны, тогда объединяем их, в инном случае смотрим значение левее numb_index.
+            if(board[i][j].value == board[i][numb_index].value){
               this.score += board[i][j].value * 2;
               board[i][j].move([i, numb_index], board[i][j].value * 2);
               this.is_move = true;
               j = numb_index;
               numb_index = -1;
             }
-            else if(numb_index + 1 < lenj){ // Сравниваем чтоб не выйти из границ массива. Для того чтобы посмотреть значение левее numb_index.
+            else if(numb_index + 1 < lenj){
               if(board[i][numb_index + 1] == 0){
                 board[i][j].move([i, numb_index + 1]);
                 this.is_move = true;
                 numb_index = numb_index + 1;
-                j = numb_index; // Присваиваем numb_index - 1 вместо numb_index - 2, так как после выполнение условий в цикле выполнится j--
+                j = numb_index;
               }
-              else{ // Данная ситуация обозначает что индекс j = numb_index + 1
+              else{
                 numb_index = numb_index + 1;
                 j = numb_index;
               }
@@ -241,32 +253,29 @@ class Game{
     }
     /*------------------------------------------------------------------------*/
     if(dir == "DOWN"){
-      for(let j = 0; j < lenj; j++){ //define col
+      for(let j = 0; j < lenj; j++){ //col
         let zero_index = -1;
         let numb_index = -1;
         for(let i = leni - 1; i >= 0; i--){
-          // Условие ниже определяет самое правую ячейку если она равна нулю и помещаяет индекс этого нуля в zero_index
           if(board[i][j] == 0 && numb_index == -1 && zero_index == -1){
             zero_index = i;
           }
-          // Условие ниже происходит когда найдено 2 числа, то есть numb_index показывает на крайнее правое число которое еще не было объеденино.
-          // Левое найденное число является board[i][j].
           else if(board[i][j] != 0 && numb_index != -1){
-            if(board[i][j].value == board[numb_index][j].value){ // Сравниваем 2 этих числа если они равны, тогда объединяем их, в инном случае смотрим значение левее numb_index.
+            if(board[i][j].value == board[numb_index][j].value){
               this.score += board[i][j].value * 2;
               board[i][j].move([numb_index, j], board[i][j].value * 2);
               this.is_move = true;
               i = numb_index;
               numb_index = -1;
             }
-            else if(numb_index - 1 >= 0){ // Сравниваем чтоб не выйти из границ массива. Для того чтобы посмотреть значение левее numb_index.
+            else if(numb_index - 1 >= 0){
               if(board[numb_index - 1][j] == 0){
                 board[i][j].move([numb_index - 1, j]);
                 this.is_move = true;
                 numb_index = numb_index - 1;
-                i = numb_index; // Присваиваем numb_index - 1 вместо numb_index - 2, так как после выполнение условий в цикле выполнится j--
+                i = numb_index;
               }
-              else{ // Данная ситуация обозначает что индекс j = numb_index - 1
+              else{
                 numb_index = numb_index - 1;
                 i = numb_index;
               }
@@ -286,32 +295,29 @@ class Game{
       }
     }
     if(dir == "UP"){
-      for(let j = 0; j < lenj; j++){ //define col
+      for(let j = 0; j < lenj; j++){
         let zero_index = -1;
         let numb_index = -1;
-        for(let i = 0; i < leni; i++){ // for(let j = 0; j < leni; j++){
-          // Условие ниже определяет самое правую ячейку если она равна нулю и помещаяет индекс этого нуля в zero_index
+        for(let i = 0; i < leni; i++){
           if(board[i][j] == 0 && numb_index == -1 && zero_index == -1){
             zero_index = i;
           }
-          // Условие ниже происходит когда найдено 2 числа, то есть numb_index показывает на крайнее правое число которое еще не было объеденино.
-          // Левое найденное число является board[i][j].
           else if(board[i][j] != 0 && numb_index != -1){
-            if(board[i][j].value == board[numb_index][j].value){ // Сравниваем 2 этих числа если они равны, тогда объединяем их, в инном случае смотрим значение левее numb_index.
+            if(board[i][j].value == board[numb_index][j].value){
               this.score += board[i][j].value * 2;
               board[i][j].move([numb_index, j], board[i][j].value * 2);
               this.is_move = true;
               i = numb_index;
               numb_index = -1;
             }
-            else if(numb_index + 1 >= 0){ // Сравниваем чтоб не выйти из границ массива. Для того чтобы посмотреть значение левее numb_index.
+            else if(numb_index + 1 >= 0){
               if(board[numb_index + 1][j] == 0){
                 board[i][j].move([numb_index + 1, j]);
                 this.is_move = true;
                 numb_index = numb_index + 1;
-                i = numb_index; // Присваиваем numb_index - 1 вместо numb_index - 2, так как после выполнение условий в цикле выполнится j--
+                i = numb_index;
               }
-              else{ // Данная ситуация обозначает что индекс j = numb_index - 1
+              else{
                 numb_index = numb_index + 1;
                 i = numb_index;
               }
