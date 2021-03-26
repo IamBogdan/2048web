@@ -1,6 +1,12 @@
 # 2048web
 A classic 2048 game, but more flex, and made by our way.
 In a future updates we gonna make interface for create custom game board in any grid size.
+
+### Future updates 
+
+- [ ] Save current state of board until next game
+- [ ] User can choose what board size want to play
+
 ## How to play
 go to https://iambogdan.github.io/2048web/ or
 
@@ -10,6 +16,12 @@ git clone https://github.com/IamBogdan/2048web
 and open ```index.html``` in your web browser.
 
 Also you could go to [releases](https://github.com/IamBogdan/2048web/releases) and download latest stable release.
+
+### Game rules
+
+ - The same numbers is combine toogether. 
+ - Use arrows (or swipe`s) to choose your move direction
+ - After each move on board randomly generates a new block 2 with 90% chance
 
 ## Browser support
 
