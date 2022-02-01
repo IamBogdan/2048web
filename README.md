@@ -3,7 +3,6 @@ A classic 2048 game, but more flex, and made by our way.
 
 ### Future updates 
 
-- [ ] Save current state of board until next game
 - [ ] User can choose what board size want to play
 
 ## How to play
