@@ -1,10 +1,10 @@
 class Game{
-
+  #is_move;
+  #score;
   constructor(){
-    this.is_move = false;
-    this.score = 0;
+    this.#is_move = false;
+    this.#score = 0;
   }
-
   generateValue(){
     /**
     * Generates number 2 with 90% probability or number 4 with 10% probability
@@ -16,193 +16,137 @@ class Game{
       }
       return 4;
   }
-
-  resetGame(){
-    /**
-    * Removes all blocks on the board, resets points
-    */
-    for(let i = 0; i < board.length; i++){
-      for(let j = 0; j < board[0].length; j++){
-        if(board[i][j] != 0){
-          board[i][j].destroy();
-        }
-      }
-    }
-    this.score = 0;
+  resetScore(){
+    this.#score = 0;
   }
-
-  checkGameOver(){
+  getScore(){
+    return this.#score;
+  }
+  setScore(value){
+    this.#score = value;
+  }
+  popIsMove(){
+    let tmp = this.#is_move;
+    this.#is_move = 0;
+    return tmp;
+  }
+  checkGameOver(board){
     /**
     * Check the game for loss
     * Works with all matrices x > 1 and y > 1
     * @return false - the game is not over,
     *         true - game is over
     */
-    let leni = board.length;
-    let lenj = board[0].length;
+    let _board = board.getBoard();
+    let rows = board.getRows();
+    let cols = board.getCols();
 
-    for(let i = 0; i < leni; i++){
-      for(let j = 0; j < lenj; j++){
-        if(board[i][j] == 0){
+    for(let y = 0; y < rows; y++)
+      for(let x = 0; x < cols; x++)
+        if(_board[y][x] == 0)
+          return false;
+    
+    // whole _board in blocks (Class Block)
+    for(let y = 1; y < rows; y++){
+      for(let x = 1; x < cols; x++){
+        let current  = _board[y][x].value;
+        let left     = _board[y][x - 1].value;
+        let top      = _board[y - 1][x].value;
+        let left_top = _board[y - 1][x - 1].value;
+
+        if(current == top || current == left || left_top == top || left_top == left){
           return false;
         }
       }
-    }
-    // whole board in blocks (Class Block)
-
-    // Compares the corners of the matrix
-    if(board[0][0].value == board[0][1].value || board[0][0].value == board[1][0].value ||
-       board[leni-1][0].value == board[leni-1][1].value || board[leni-1][0].value == board[leni-2][0].value ||
-       board[0][lenj-1].value == board[0][lenj-2].value || board[0][lenj-1].value == board[1][lenj-1].value ||
-       board[leni-1][lenj-1].value == board[leni-1][lenj-2].value || board[leni-1][lenj-1].value == board[leni-2][lenj-1].value){
-        return false;
-    }
-    // for 2x2 :D
-    else if(leni == 2 && lenj == 2){
-      return true;
-    }
-
-
-    for(let i = 1; i < leni - 1; i++){
-      let current = board[i][0].value;
-      let top     = board[i-1][0].value;
-      let down    = board[i+1][0].value;
-      let right   = board[i][1].value;
-      if(current ==  top || current == down || current == right){
-        return false;
-      }
-    }
-
-      for(let i = 1; i < leni - 1; i++){
-        let current = board[i][lenj-1].value;
-        let top     = board[i-1][lenj-1].value;
-        let left    = board[i][lenj-2].value;
-        let down    = board[i+1][lenj-1].value;
-        if(current ==  top || current == left || current == down){
-          return false;
-        }
-      }
-
-      for(let j = 1; j < lenj - 1; j++){
-        let current = board[0][j].value;
-        let left    = board[0][j-1].value;
-        let down    = board[1][j].value;
-        let right   = board[0][j+1].value;
-        if(current ==  left || current == down || current == right){
-          return false;
-        }
-      }
-
-      for(let j = 1; j < lenj - 1; j++){
-        let current = board[leni-1][j].value;
-        let top     = board[leni-2][j].value;
-        let left    = board[leni-1][j-1].value;
-        let right   = board[leni-1][j+1].value;
-        if(current ==  top || current == left || current == right){
-          return false;
-        }
-      }
-      // for matrix 2xN и Nx2, N > 2
-      if(leni == 2 && lenj > 2 || lenj == 2 && leni > 2){
-        return true;
-      }
-
-
-    // Compare blocks in the center
-    for(let i = 1; i < leni - 2; i++){
-      for(let j = 1; j < lenj - 2; j++){
-        let current = board[i][j].value;
-        let top     = board[i-1][j].value;
-        let left    = board[i][j-1].value;
-        let down    = board[i+1][j].value;
-        let right   = board[i][j+1].value;
-        if(current == top || current == left || current == down || current == right){
-          return false;
-        }
-      }
-    }
+    } 
     return true;
   }
-
-
-  generatePosition(/*board*/){
+  generatePosition(board){
     /**
     * Generates coordinates for a new block
     * @return -1 - if there is no empty space for the block
     * @return a coordinates for the new block
     */
+
+    let _board = board.getBoard();
+    let rows = board.getRows();
+    let cols = board.getCols();
     let pos = [];
 
-    for(let i = 0; i < board.length; i++){
-      for(let j = 0; j < board[0].length; j++){
-        if(board[i][j] == 0){
-          pos.push([i, j]);
+    for(let y = 0; y < rows; y++){
+      for(let x = 0; x < cols; x++){
+        if(_board[y][x] == 0){
+          pos.push({x: x, y: y});
         }
       }
     }
 
     if(pos.length == 0){
+      console.log("Can not pick pisition");
       return -1;
-    }
+    }/*
     if(pos.length == 1){
       return pos[0];
-    }
+    }*/
     // Рандом в радиусе [0, pos.length)
     let i = Math.floor(Math.random() * pos.length);
     return pos[i];
   }
-
-  doGameMove(dir){
+  doGameMove(dir, board){
     /**
-    * Makes the whole board move
+    * Makes the whole _board move
     * @param {dir} string - direction to shift all blocks
     */
-    let leni = board.length;
-    let lenj = board[0].length;
-    // init in constructor
-    this.is_move = false;
 
+    let _board = board.getBoard();
+    let rows = board.getRows();
+    let cols = board.getCols();
+    // init in constructor
+    this.#is_move = false;
+    
     if(dir == "RIGHT"){
-      for(let i = 0; i < leni; i++){ //row
+      for(let y = 0; y < rows; y++){ //row
+        //let _board = board.getBoard();
         let zero_index = -1;
         let numb_index = -1;
-        for(let j = lenj - 1; j >= 0; j--){
-          if(board[i][j] == 0 && numb_index == -1 && zero_index == -1){
+        for(let x = cols - 1; x >= 0; x--){
+          if(_board[y][x] == 0 && numb_index == -1 && zero_index == -1){
             // determines the rightmost cell if it is zero and places the index of that zero at zero_index
-            zero_index = j;
+            zero_index = x;
           }
-          else if(board[i][j] != 0 && numb_index != -1){
+          else if(_board[y][x] != 0 && numb_index != -1){
             // found 2 numbers, that is, numb_index points to the rightmost number that has not yet been merged.
             // the left number found is board [i] [j].
-            if(board[i][j].value == board[i][numb_index].value){
+            if(_board[y][x].value == _board[y][numb_index].value){
               // compare these 2 numbers if they are equal - combine them, else look at the value to the left of numb_index.
-              this.score += board[i][j].value * 2;
-              board[i][j].move([i, numb_index], board[i][j].value * 2);
-              this.is_move = true;
-              j = numb_index;
+              this.#score += _board[y][x].value * 2;
+              board.moveBlock({x: x, y: y}, {x: numb_index, y: y}, _board[y][x].value * 2);
+              this.#is_move = true;
+              x = numb_index;
               numb_index = -1;
             }
             else if(numb_index - 1 >= 0){
               // Compare to not get out of the bounds of the array. To view the value to the left of numb_index.
-              if(board[i][numb_index - 1] == 0){
-                board[i][j].move([i, numb_index - 1]);
-                this.is_move = true;
+              if(_board[y][numb_index - 1] == 0){
+                //board[i][j].move([i, numb_index - 1]);
+                board.moveBlock({x: x, y: y}, {x: numb_index - 1, y: y}, _board[y][x].value);
+                this.#is_move = true;
                 numb_index = numb_index - 1; // Assign numb_index - 1 instead numb_index - 2, since after the execution conditions is executed in a cycle j--
-                j = numb_index;
+                x = numb_index;
               }
               else{ // This situation means that the index j = numb_index - 1
                 numb_index = numb_index - 1;
-                j = numb_index;
+                x = numb_index;
               }
             }
           }
-          else if(board[i][j] != 0 && numb_index == -1 && zero_index == -1){
-            numb_index = j;
+          else if(_board[y][x] != 0 && numb_index == -1 && zero_index == -1){
+            numb_index = x;
           }
-          else if(board[i][j] != 0 && zero_index != -1){
-            board[i][j].move([i, zero_index]);
-            this.is_move = true;
-            j = zero_index;
+          else if(_board[y][x] != 0 && zero_index != -1){
+            board.moveBlock({x: x, y: y}, {x: zero_index, y: y}, _board[y][x].value);
+            this.#is_move = true;
+            x = zero_index;
             numb_index = zero_index;
             zero_index = -1;
           }
@@ -210,41 +154,41 @@ class Game{
       }
     }
     if(dir == "LEFT"){
-      for(let i = 0; i < leni; i++){ //row
+      for(let y = 0; y < rows; y++){ //row
         let zero_index = -1;
         let numb_index = -1;
-        for(let j = 0; j < lenj; j++){
-          if(board[i][j] == 0 && numb_index == -1 && zero_index == -1){
-            zero_index = j;
+        for(let x = 0; x < cols; x++){
+          if(_board[y][x] == 0 && numb_index == -1 && zero_index == -1){
+            zero_index = x;
           }
-          else if(board[i][j] != 0 && numb_index != -1){
-            if(board[i][j].value == board[i][numb_index].value){
-              this.score += board[i][j].value * 2;
-              board[i][j].move([i, numb_index], board[i][j].value * 2);
-              this.is_move = true;
-              j = numb_index;
+          else if(_board[y][x] != 0 && numb_index != -1){
+            if(_board[y][x].value == _board[y][numb_index].value){
+              this.#score += _board[y][x].value * 2;
+              board.moveBlock({x: x, y: y}, {x: numb_index, y: y}, _board[y][x].value * 2);
+              this.#is_move = true;
+              x = numb_index;
               numb_index = -1;
             }
-            else if(numb_index + 1 < lenj){
-              if(board[i][numb_index + 1] == 0){
-                board[i][j].move([i, numb_index + 1]);
-                this.is_move = true;
+            else if(numb_index + 1 < cols){
+              if(_board[y][numb_index + 1] == 0){
+                board.moveBlock({x: x, y: y}, {x: numb_index + 1, y: y}, _board[y][x].value);
+                this.#is_move = true;
                 numb_index = numb_index + 1;
-                j = numb_index;
+                x = numb_index;
               }
               else{
                 numb_index = numb_index + 1;
-                j = numb_index;
+                x = numb_index;
               }
             }
           }
-          else if(board[i][j] != 0 && numb_index == -1 && zero_index == -1){
-            numb_index = j;
+          else if(_board[y][x] != 0 && numb_index == -1 && zero_index == -1){
+            numb_index = x;
           }
-          else if(board[i][j] != 0 && zero_index != -1){
-            board[i][j].move([i, zero_index]);
-            this.is_move = true;
-            j = zero_index;
+          else if(_board[y][x] != 0 && zero_index != -1){
+            board.moveBlock({x: x, y: y}, {x: zero_index, y: y}, _board[y][x].value);
+            this.#is_move = true;
+            x = zero_index;
             numb_index = zero_index;
             zero_index = -1;
           }
@@ -253,41 +197,41 @@ class Game{
     }
     /*------------------------------------------------------------------------*/
     if(dir == "DOWN"){
-      for(let j = 0; j < lenj; j++){ //col
+      for(let x = 0; x < cols; x++){ //col
         let zero_index = -1;
         let numb_index = -1;
-        for(let i = leni - 1; i >= 0; i--){
-          if(board[i][j] == 0 && numb_index == -1 && zero_index == -1){
-            zero_index = i;
+        for(let y = rows - 1; y >= 0; y--){
+          if(_board[y][x] == 0 && numb_index == -1 && zero_index == -1){
+            zero_index = y;
           }
-          else if(board[i][j] != 0 && numb_index != -1){
-            if(board[i][j].value == board[numb_index][j].value){
-              this.score += board[i][j].value * 2;
-              board[i][j].move([numb_index, j], board[i][j].value * 2);
-              this.is_move = true;
-              i = numb_index;
+          else if(_board[y][x] != 0 && numb_index != -1){
+            if(_board[y][x].value == _board[numb_index][x].value){
+              this.#score += _board[y][x].value * 2;
+              board.moveBlock({x: x, y: y}, {x: x, y: numb_index}, _board[y][x].value * 2);
+              this.#is_move = true;
+              y = numb_index;
               numb_index = -1;
             }
             else if(numb_index - 1 >= 0){
-              if(board[numb_index - 1][j] == 0){
-                board[i][j].move([numb_index - 1, j]);
-                this.is_move = true;
+              if(_board[numb_index - 1][x] == 0){
+                board.moveBlock({x: x, y: y}, {x: x, y: numb_index - 1}, _board[y][x].value);
+                this.#is_move = true;
                 numb_index = numb_index - 1;
-                i = numb_index;
+                y = numb_index;
               }
               else{
                 numb_index = numb_index - 1;
-                i = numb_index;
+                y = numb_index;
               }
             }
           }
-          else if(board[i][j] != 0 && numb_index == -1 && zero_index == -1){
-            numb_index = i;
+          else if(_board[y][x] != 0 && numb_index == -1 && zero_index == -1){
+            numb_index = y;
           }
-          else if(board[i][j] != 0 && zero_index != -1){
-            board[i][j].move([zero_index, j]);
-            this.is_move = true;
-            i = zero_index;
+          else if(_board[y][x] != 0 && zero_index != -1){
+            board.moveBlock({x: x, y: y}, {x: x, y: zero_index}, _board[y][x].value);
+            this.#is_move = true;
+            y = zero_index;
             numb_index = zero_index;
             zero_index = -1;
           }
@@ -295,41 +239,41 @@ class Game{
       }
     }
     if(dir == "UP"){
-      for(let j = 0; j < lenj; j++){
+      for(let x = 0; x < cols; x++){
         let zero_index = -1;
         let numb_index = -1;
-        for(let i = 0; i < leni; i++){
-          if(board[i][j] == 0 && numb_index == -1 && zero_index == -1){
-            zero_index = i;
+        for(let y = 0; y < rows; y++){
+          if(_board[y][x] == 0 && numb_index == -1 && zero_index == -1){
+            zero_index = y;
           }
-          else if(board[i][j] != 0 && numb_index != -1){
-            if(board[i][j].value == board[numb_index][j].value){
-              this.score += board[i][j].value * 2;
-              board[i][j].move([numb_index, j], board[i][j].value * 2);
-              this.is_move = true;
-              i = numb_index;
+          else if(_board[y][x] != 0 && numb_index != -1){
+            if(_board[y][x].value == _board[numb_index][x].value){
+              this.#score += _board[y][x].value * 2;
+              board.moveBlock({x: x, y: y}, {x: x, y: numb_index}, _board[y][x].value * 2);
+              this.#is_move = true;
+              y = numb_index;
               numb_index = -1;
             }
             else if(numb_index + 1 >= 0){
-              if(board[numb_index + 1][j] == 0){
-                board[i][j].move([numb_index + 1, j]);
-                this.is_move = true;
+              if(_board[numb_index + 1][x] == 0){
+                board.moveBlock({x: x, y: y}, {x: x, y: numb_index + 1}, _board[y][x].value);
+                this.#is_move = true;
                 numb_index = numb_index + 1;
-                i = numb_index;
+                y = numb_index;
               }
               else{
                 numb_index = numb_index + 1;
-                i = numb_index;
+                y = numb_index;
               }
             }
           }
-          else if(board[i][j] != 0 && numb_index == -1 && zero_index == -1){
-            numb_index = i;
+          else if(_board[y][x] != 0 && numb_index == -1 && zero_index == -1){
+            numb_index = y;
           }
-          else if(board[i][j] != 0 && zero_index != -1){
-            board[i][j].move([zero_index, j]);
-            this.is_move = true;
-            i = zero_index;
+          else if(_board[y][x] != 0 && zero_index != -1){
+            board.moveBlock({x: x, y: y}, {x: x, y: zero_index}, _board[y][x].value);
+            this.#is_move = true;
+            y = zero_index;
             numb_index = zero_index;
             zero_index = -1;
           }

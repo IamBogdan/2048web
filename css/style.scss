@@ -203,7 +203,7 @@ main{
 }
 
 
-@media screen and (max-height: $block-size * $grid-size + $grid-gap * $grid-size + 120px){
+@media screen and (max-height: ($block-size * $grid-size + $grid-gap * $grid-size + 120px)){
   $bs: $block-size;
   $block-size: $bs / 1.8;
   .userInterface{
@@ -241,7 +241,7 @@ main{
 
 }
 
-@media screen and (max-height: $block-size * $grid-size + $grid-gap * $grid-size){
+@media screen and (max-height: ($block-size * $grid-size + $grid-gap * $grid-size)){
   $bs: $block-size;
   $block-size: $bs / 1.8;
   .userInterface{
@@ -275,7 +275,7 @@ main{
   }
 }
 
-@media screen and (max-width: $block-size * $grid-size + $grid-gap * $grid-size){
+@media screen and (max-width: ($block-size * $grid-size + $grid-gap * $grid-size)){
   $bs: $block-size;
   $block-size: $bs / 1.8;
   .userInterface{

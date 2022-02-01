@@ -5,19 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>2048</title>
-
-  <!-- Підключення стилів вебсторінки -->
-  <!-- <link href="https://fonts.googleapis.com/css2?family=Ruda:wght@855&display=swap" rel="stylesheet"> -->
+  
   <style>
     @font-face {
       font-family: Ruda;
-      src: url(./css/fonts/Ruda-Black.ttf);
+      src: url("./css/fonts/Ruda-Black.ttf");
     }
   </style>
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-
 
   <div class="ui-overlay" style="display: none">
     <div class="popup">
@@ -31,22 +28,20 @@
 
 
   <main>
-
+    
     <div class="userInterface">
-
       <div class="score-scope">
         <span id="score">2048</span>
-
       </div>
       <div id="reset-btn" class="button">
         Restart
       </div>
     </div>
+
     <div id="gameFrame">
 
         <div class="overlay">
-          <div id="mainBlocks" class="row">
-          </div>
+          <div id="mainBlocks" class="row"></div>
         </div>
 
         <div class="row">
@@ -84,9 +79,9 @@
 
   <script type="text/javascript" src="./js/display.js"></script>
   <script type="text/javascript" src="./js/block.js"></script>
+  <script type="text/javascript" src="./js/board.js"></script>
   <script type="text/javascript" src="./js/engine.js"></script>
   <script type="text/javascript" src="./js/controller.js"></script>
-
 
 </body>
 </html>
